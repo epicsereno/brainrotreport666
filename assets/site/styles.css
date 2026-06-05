@@ -482,3 +482,65 @@ footer .disclaimer {
 @media (max-width: 760px) {
   .spotlight { grid-template-columns: 1fr; }
 }
+
+/* ---------- DASHBOARD (index) ---------- */
+.metric-card { text-align: center; padding: 1.7rem 1rem; }
+.metric-value {
+  font-family: var(--mono); font-weight: 800;
+  font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.1;
+  color: var(--neon); text-shadow: 0 0 18px rgba(0, 255, 159, 0.4);
+}
+.metric-card.rizz .metric-value { color: var(--purple); text-shadow: 0 0 18px rgba(168, 85, 247, 0.45); }
+.metric-card.grass .metric-value { color: #7CFC9A; }
+.metric-label {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted); margin-top: 0.5rem;
+}
+.metric-card .btn { margin-top: 0.9rem; padding: 0.5rem 1rem; font-size: 0.85rem; }
+.dash-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2rem; margin-top: 2.5rem; align-items: start; }
+.dash-panel { background: linear-gradient(160deg, var(--panel), var(--panel-2)); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+.dash-panel h3 { font-size: 1rem; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--neon); margin-bottom: 1.2rem; }
+.progress-item { margin-bottom: 1.1rem; }
+.progress-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.82rem; margin-bottom: 0.35rem; color: var(--muted); }
+.progress-head .stage-name { color: var(--text); }
+.progress-track { height: 10px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--neon), var(--neon-dim)); transition: width 1.1s cubic-bezier(.2,.8,.2,1); }
+.progress-item.current .progress-fill { background: linear-gradient(90deg, var(--purple), var(--neon)); animation: barpulse 1.8s ease-in-out infinite; }
+.progress-item.pending .progress-fill { background: var(--border); }
+.progress-item.pending .stage-name { color: var(--muted); }
+@keyframes barpulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+/* ---------- ETHICS PAGE ---------- */
+.lead-quote {
+  border-left: 3px solid var(--neon); background: var(--panel);
+  padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; font-style: italic;
+  color: var(--text); margin: 0 0 1rem; font-size: 1.05rem;
+}
+.lead-quote cite { display: block; margin-top: 0.5rem; font-style: normal; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+
+.ethics-progress-wrap { position: sticky; top: 64px; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 1.1rem; margin-bottom: 2rem; }
+.ethics-progress-head { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 0.82rem; margin-bottom: 0.5rem; }
+.ethics-progress-head b { color: var(--neon); }
+
+.checklist-phase { margin-bottom: 1.6rem; }
+.checklist-phase > h3 { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.6rem; }
+.check-item { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 9px; margin-bottom: 0.45rem; cursor: pointer; background: var(--panel); transition: border-color 0.15s, background 0.15s; }
+.check-item:hover { border-color: var(--purple); }
+.check-item input { margin-top: 0.25rem; width: 18px; height: 18px; accent-color: var(--neon); cursor: pointer; flex-shrink: 0; }
+.check-item.checked { border-color: var(--neon-dim); background: rgba(0, 255, 159, 0.04); }
+.check-item.checked .check-label { color: var(--muted); text-decoration: line-through; }
+.check-label { font-size: 0.95rem; }
+.btn-reset { background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 0.4rem 0.9rem; cursor: pointer; font-family: var(--mono); font-size: 0.78rem; }
+.btn-reset:hover { color: var(--danger); border-color: var(--danger); }
+
+.redlines { list-style: none; display: grid; gap: 0.5rem; }
+.redlines li { padding: 0.7rem 1rem; border: 1px solid #3a1626; background: rgba(255, 46, 136, 0.05); border-radius: 9px; color: #ff85b5; font-size: 0.92rem; }
+
+.resource-card { display: block; }
+.resource-card h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+.resource-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.6rem; }
+.resource-card .res-link { font-family: var(--mono); font-size: 0.85rem; }
+
+@media (max-width: 760px) {
+  .dash-split { grid-template-columns: 1fr; }
+}

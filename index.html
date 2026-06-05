@@ -33,7 +33,7 @@
         <a href="episodes.html">Episodes</a>
         <a href="departments.html">Departments</a>
         <a href="#workflow">Workflow</a>
-        <a href="#ethics">Ethics</a>
+        <a href="ethics.html">Ethics</a>
         <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
         <button class="theme-btn" aria-label="Toggle theme" title="Toggle light/dark">☀️</button>
       </nav>
@@ -63,6 +63,49 @@
         <p class="counter">
           <b id="souls-counter">66,600</b> souls saved from terminal brainrot
         </p>
+      </div>
+    </section>
+
+    <!-- LIVE DASHBOARD -->
+    <section id="dashboard">
+      <div class="container">
+        <p class="kicker">// War Room Telemetry</p>
+        <h2 class="section-title">Live Dashboard</h2>
+        <p class="section-sub">
+          Empire vitals, refreshed on load. Metrics marked ✦ are stylized vibes — not audited
+          analytics. We keep the receipts where it counts.
+        </p>
+
+        <div class="grid cols-4 metrics">
+          <div class="card metric-card">
+            <div class="metric-value" id="metric-souls">0</div>
+            <div class="metric-label">✦ Souls Saved</div>
+          </div>
+          <div class="card metric-card rizz">
+            <div class="metric-value">OVER 9000</div>
+            <div class="metric-label">✦ Rizz Level</div>
+          </div>
+          <div class="card metric-card">
+            <div class="metric-value" id="metric-dropped">—</div>
+            <div class="metric-label">Episodes Dropped</div>
+          </div>
+          <div class="card metric-card grass">
+            <div class="metric-value" id="metric-grass">0</div>
+            <div class="metric-label">Grass Touched</div>
+            <button class="btn grass-btn" id="grass-touch-btn">🌱 Touch Grass +1</button>
+          </div>
+        </div>
+
+        <div class="dash-split">
+          <div class="dash-panel">
+            <h3>EP001 — Pipeline Progress</h3>
+            <div id="ep1-progress"></div>
+          </div>
+          <div class="dash-panel">
+            <h3>EP001 — Workflow Map</h3>
+            <div class="mermaid-wrap" id="ep1-pipeline"><span class="empty-state">rendering…</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -194,6 +237,9 @@
             <tr><td>Sustainability</td><td>Reasonable schedules and team wellness over the grind.</td></tr>
           </tbody>
         </table>
+        <p style="margin-top:2rem">
+          <a class="btn btn-ghost" href="ethics.html">Read the full manifesto + checklist →</a>
+        </p>
       </div>
     </section>
 
@@ -214,5 +260,6 @@
   </footer>
 
   <script src="assets/site/main.js"></script>
+  <script type="module" src="assets/site/dashboard.js"></script>
 </body>
 </html>
