@@ -39,6 +39,18 @@
     .dept-card:hover { box-shadow: 0 0 30px rgba(0, 255, 159, 0.18), 0 14px 40px rgba(0, 0, 0, 0.5); }
     .dept-card[data-category="support"]:hover { box-shadow: 0 0 30px rgba(168, 85, 247, 0.22), 0 14px 40px rgba(0, 0, 0, 0.5); }
     .status-dot { animation: blink 1.6s ease-in-out infinite; box-shadow: 0 0 8px #00ff9f; }
+    /* "Secretly Ethical" tag that glows in on card hover */
+    .secret-tag {
+      z-index: 5; white-space: nowrap;
+      background: var(--neon); color: #04110b;
+      border: 1px solid var(--neon);
+      box-shadow: 0 0 18px rgba(0, 255, 159, 0.6);
+    }
+    .dept-card[data-category="support"]:hover .secret-tag {
+      background: var(--purple); border-color: var(--purple); color: #fff;
+      box-shadow: 0 0 18px rgba(168, 85, 247, 0.6);
+    }
+    @media (prefers-reduced-motion: reduce) { .secret-tag { transition: none; } }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
     .filter-btn { border: 1px solid var(--border); color: var(--muted); background: var(--panel); }
     .filter-btn.filter-active { color: #04110b; background: var(--neon); border-color: var(--neon); box-shadow: 0 0 18px rgba(0,255,159,0.45); }
@@ -78,11 +90,19 @@
           gate. Tap a card for the full manifesto and its sub-workflow.
         </p>
 
+        <!-- search -->
+        <div class="mt-6 max-w-xl">
+          <input id="dept-search" type="search" class="search-input"
+            placeholder="Search the machine…  try “ethics”, “fair pay”, “QC”, “handoff”"
+            aria-label="Search departments" />
+        </div>
+
         <!-- filters -->
-        <div class="flex flex-wrap gap-2 mt-7" role="group" aria-label="Filter departments">
+        <div class="flex flex-wrap items-center gap-2 mt-4" role="group" aria-label="Filter departments">
           <button class="filter-btn rounded-full px-4 py-1.5 text-sm font-semibold transition" data-filter="all" aria-pressed="true">All</button>
           <button class="filter-btn rounded-full px-4 py-1.5 text-sm font-semibold transition" data-filter="core" aria-pressed="false">Core Pipeline</button>
           <button class="filter-btn rounded-full px-4 py-1.5 text-sm font-semibold transition" data-filter="support" aria-pressed="false">Support</button>
+          <span id="dept-count" class="ml-auto text-xs font-mono text-rot-muted"></span>
         </div>
       </div>
     </section>
@@ -92,6 +112,7 @@
         <div id="dept-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <noscript><p class="text-rot-muted">Enable JavaScript to explore the departments.</p></noscript>
         </div>
+        <p id="dept-no-results" class="empty-state hidden">No departments match that energy. Clear the search to see all 8.</p>
       </div>
     </section>
   </main>

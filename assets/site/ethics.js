@@ -106,13 +106,5 @@
 
   render();
 
-  /* shared chrome */
-  var menuBtn = document.querySelector(".menu-btn");
-  var navLinks = document.querySelector(".nav-links");
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", function () { navLinks.classList.toggle("open"); });
-    navLinks.addEventListener("click", function (e) { if (e.target.tagName === "A") navLinks.classList.remove("open"); });
-  }
-  var yr = document.getElementById("year");
-  if (yr) yr.textContent = new Date().getFullYear();
+  /* nav menu + theme + year handled globally by theme.js */
 })();

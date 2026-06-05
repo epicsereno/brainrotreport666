@@ -66,6 +66,15 @@
             <button class="filter-btn" data-filter="incoming" aria-pressed="false">Incoming</button>
             <button class="filter-btn" data-filter="in-prod" aria-pressed="false">In-Prod</button>
             <button class="filter-btn" data-filter="released" aria-pressed="false">Released</button>
+          </div>
+          <div class="filter-row">
+            <span class="lbl">sort:</span>
+            <select id="sort" class="sort-select" aria-label="Sort episodes">
+              <option value="date-desc">Newest first</option>
+              <option value="date-asc">Oldest first</option>
+              <option value="stage">Pipeline stage</option>
+              <option value="title">Title A–Z</option>
+            </select>
             <span class="result-count" id="result-count"></span>
           </div>
         </div>
@@ -94,8 +103,8 @@
     </section>
   </main>
 
-  <!-- TEASER MODAL -->
-  <div class="modal" id="teaser-modal" role="dialog" aria-modal="true" aria-label="Episode teaser">
+  <!-- EPISODE DETAILS MODAL -->
+  <div class="modal" id="teaser-modal" role="dialog" aria-modal="true" aria-label="Episode details">
     <div class="modal-box">
       <button class="modal-close" aria-label="Close">✕</button>
       <div id="teaser-modal-body"></div>

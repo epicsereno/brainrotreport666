@@ -127,12 +127,4 @@ document.getElementById("wf-reset")?.addEventListener("click", () => {
 
 boot();
 
-/* shared chrome */
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
-if (menuBtn && navLinks) {
-  menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
-  navLinks.addEventListener("click", (e) => { if (e.target.tagName === "A") navLinks.classList.remove("open"); });
-}
-const yr = document.getElementById("year");
-if (yr) yr.textContent = new Date().getFullYear();
+/* nav menu + theme + year handled globally by theme.js */
