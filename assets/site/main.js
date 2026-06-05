@@ -64,14 +64,20 @@
     });
   }
 
+  var STATUS_LABEL = {
+    incoming: "Incoming", "in-progress": "In-Prod", review: "In-Prod",
+    ready: "In-Prod", published: "Released", archived: "Released"
+  };
+
   function renderEpisode(ep) {
     var statusClass = esc(ep.status || "incoming");
-    var link = ep.link ? esc(ep.link) : "#episodes";
+    var statusText = STATUS_LABEL[ep.status] || ep.status || "incoming";
+    var link = ep.link ? esc(ep.link) : "episodes.html";
     return (
       '<article class="card ep-card">' +
         '<div class="ep-thumb">' + esc(ep.thumb || ep.id || "BR666") + "</div>" +
         '<div class="ep-meta">' +
-          '<span class="badge ' + statusClass + '">' + esc(ep.status || "incoming") + "</span>" +
+          '<span class="badge ' + statusClass + '">' + esc(statusText) + "</span>" +
           '<span class="ep-date">' + esc(ep.date || "TBA") + "</span>" +
         "</div>" +
         "<h3>" + esc(ep.id ? ep.id + " — " : "") + esc(ep.title || "Untitled") + "</h3>" +

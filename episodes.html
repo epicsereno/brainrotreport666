@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Episodes — Brainrot Report 666</title>
+  <meta name="description" content="Every Brainrot Report 666 drop — searchable, filterable, with live workflow status. Skibidi, rizz, cooked. Secretly ethical, maximally based." />
+  <meta name="keywords" content="brainrot report episodes, skibidi, rizz, cooked, episode archive, secretly ethical" />
+  <meta name="theme-color" content="#07060a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Episodes — Brainrot Report 666" />
+  <meta property="og:description" content="Search the drops. Skibidi, rizz, cooked. The empire's episode archive." />
+  <meta property="og:url" content="https://epicsereno.github.io/brainrotreport666/episodes.html" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💀</text></svg>" />
+  <link rel="stylesheet" href="assets/site/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top">
+        <span class="skull">💀</span>
+        <span>BRAINROT REPORT <span class="six">666</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="episodes.html">Episodes</a>
+        <a href="departments.html">Departments</a>
+        <a href="index.html#workflow">Workflow</a>
+        <a href="index.html#ethics">Ethics</a>
+        <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding-top:3.5rem;padding-bottom:1rem">
+      <div class="container">
+        <p class="kicker">// The Drops</p>
+        <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:900;margin:0.3rem 0 1.6rem">Episode Archive</h1>
+
+        <!-- SPOTLIGHT -->
+        <div class="spotlight" id="spotlight">
+          <p class="empty-state" style="grid-column:1/-1">Loading the latest drop…</p>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls">
+          <input id="search" class="search-input" type="search"
+            placeholder="Search the rot…  try “skibidi”, “rizz”, “cooked”" aria-label="Search episodes" />
+          <div class="slang-chips">
+            <span class="lbl">quick rot:</span>
+            <button class="slang-chip" data-slang="skibidi">skibidi</button>
+            <button class="slang-chip" data-slang="rizz">rizz</button>
+            <button class="slang-chip" data-slang="cooked">cooked</button>
+            <button class="slang-chip" data-slang="ohio">ohio</button>
+            <button class="slang-chip" data-slang="based">based</button>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filter by status">
+            <span class="lbl">status:</span>
+            <button class="filter-btn filter-active" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" data-filter="incoming" aria-pressed="false">Incoming</button>
+            <button class="filter-btn" data-filter="in-prod" aria-pressed="false">In-Prod</button>
+            <button class="filter-btn" data-filter="released" aria-pressed="false">Released</button>
+            <span class="result-count" id="result-count"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section style="padding-top:0.5rem">
+      <div class="container">
+        <div id="episode-grid" class="grid cols-3">
+          <noscript><p class="empty-state">Enable JavaScript to browse the drops.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW STATUS -->
+    <section id="workflow">
+      <div class="container">
+        <p class="kicker">// Pipeline Telemetry</p>
+        <h2 class="section-title" style="font-size:1.8rem">Current Episode Workflow Status</h2>
+        <p class="section-sub" id="workflow-caption">Loading pipeline…</p>
+        <div class="mermaid-wrap" id="workflow-diagram">
+          <span class="empty-state">rendering diagram…</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TEASER MODAL -->
+  <div class="modal" id="teaser-modal" role="dialog" aria-modal="true" aria-label="Episode teaser">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div id="teaser-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="kicker">Like · Subscribe · Touch Grass</p>
+      <h2 class="section-title" style="font-size:1.6rem">New drops, same based backbone.</h2>
+      <a class="btn btn-ghost" href="index.html">← Back to base</a>
+      <p class="disclaimer">
+        Entertainment purposes only. Episode data shown includes mock/upcoming entries; statuses and
+        teasers are illustrative. © <span id="year">2026</span> Brainrot Report 666.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/site/episodes.js"></script>
+</body>
+</html>

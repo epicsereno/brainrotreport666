@@ -37,6 +37,16 @@ Last updated: 2026-06-05.
 - [ ] **Stage EP001** in the `episodes/` pipeline (`incoming/` or `in-progress/`)
 - [ ] Run a handoff log when creative → production: `./scripts/workflow/handoff.sh EP001 creative production`
 
+## 📺 Episodes page (`episodes.html`)
+
+- [ ] **EP002 "Rizz Recession" is mock data** in `assets/site/episodes.json` (status
+      `published`/Released) — it isn't a real episode and has no script in the repo. Either
+      produce it or mark clearly as a demo. EP001 is the only real entry.
+- [ ] **"Watch Teaser" has no real teaser** — `teaser` is `null`, so the button opens a
+      "dropping soon" modal. Wire real teaser URLs when they exist.
+- [ ] Episode statuses now map: `incoming`→Incoming, `in-progress`/review/ready→In-Prod,
+      `published`/archived→Released (used across index, episodes, and the Mermaid pipeline).
+
 ## 🌐 Website — live at https://epicsereno.github.io/brainrotreport666/
 
 Deployed from the **`Brainrotreport666` branch, root** (no `main`/`gh-pages` branch exists).
