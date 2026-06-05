@@ -15,26 +15,7 @@
     });
   }
 
-  /* ---- theme toggle (persisted) ---- */
-  var themeBtn = document.querySelector(".theme-btn");
-  try {
-    if (localStorage.getItem("br666-theme") === "light") {
-      document.body.classList.add("light");
-    }
-  } catch (e) {}
-  if (themeBtn) {
-    var setLabel = function () {
-      themeBtn.textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
-    };
-    setLabel();
-    themeBtn.addEventListener("click", function () {
-      document.body.classList.toggle("light");
-      try {
-        localStorage.setItem("br666-theme", document.body.classList.contains("light") ? "light" : "dark");
-      } catch (e) {}
-      setLabel();
-    });
-  }
+  /* theme toggle handled globally by theme.js */
 
   /* ---- episode loader ---- */
   var grid = document.getElementById("episode-grid");

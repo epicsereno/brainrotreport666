@@ -47,6 +47,19 @@ Last updated: 2026-06-05.
 - [ ] Episode statuses now map: `incoming`→Incoming, `in-progress`/review/ready→In-Prod,
       `published`/archived→Released (used across index, episodes, and the Mermaid pipeline).
 
+## 🔗 GitHub integration & tooling
+
+- [x] `episodes.json` is now **generated** from `episodes/<stage>/*.md` frontmatter via
+      `node scripts/site/generate-episodes.js` (use `--check` in CI). Edit the markdown, not
+      the JSON. — added 2026-06-05
+- [ ] **Re-run the generator after editing episode markdown** (or wire it into a pre-commit
+      hook / CI check so `episodes.json` can't drift).
+- [ ] Footer repo stats (⭐/🍴/🐛) and the homepage commit feed pull from the **public GitHub
+      API** (unauthenticated, 60 req/hr/IP). They degrade to placeholders/snapshot on
+      rate-limit — fine, just know the feed isn't guaranteed live for every visitor.
+- [ ] Dashboard metrics (Souls/Rizz) are stylized (marked ✦); "Episodes Dropped" is real
+      (published count from the generator).
+
 ## 🌐 Website — live at https://epicsereno.github.io/brainrotreport666/
 
 Deployed from the **`Brainrotreport666` branch, root** (no `main`/`gh-pages` branch exists).

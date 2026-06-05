@@ -34,6 +34,7 @@
         <a href="departments.html">Departments</a>
         <a href="#workflow">Workflow</a>
         <a href="ethics.html">Ethics</a>
+        <a href="#contribute">Contribute</a>
         <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
         <button class="theme-btn" aria-label="Toggle theme" title="Toggle light/dark">☀️</button>
       </nav>
@@ -216,6 +217,48 @@
       </div>
     </section>
 
+    <!-- LIVE FROM THE REPO -->
+    <section id="repo">
+      <div class="container">
+        <p class="kicker">// Live From The Repo</p>
+        <h2 class="section-title">Latest Commits</h2>
+        <p class="section-sub">
+          Straight from <a href="https://github.com/epicsereno/brainrotreport666/commits" target="_blank" rel="noopener">the source</a> —
+          this feed pulls live from the GitHub API on load.
+        </p>
+        <div class="commit-feed" id="commit-feed">
+          <p class="empty-state">Pulling commits from GitHub…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTRIBUTE -->
+    <section id="contribute">
+      <div class="container">
+        <p class="kicker">// Join The Conspiracy</p>
+        <h2 class="section-title">Contribute</h2>
+        <p class="section-sub">Open source, secretly ethical. Pull up — issues and PRs welcome.</p>
+        <div class="contribute-grid">
+          <a href="https://github.com/epicsereno/brainrotreport666/issues" target="_blank" rel="noopener">
+            <span class="ic">🐛</span><span class="t">Open Issues</span>
+            <span class="d">Bugs, ideas, and chaos to squash.</span>
+          </a>
+          <a href="https://github.com/epicsereno/brainrotreport666/pulls" target="_blank" rel="noopener">
+            <span class="ic">🔀</span><span class="t">Pull Requests</span>
+            <span class="d">See what's cooking in review.</span>
+          </a>
+          <a href="https://github.com/epicsereno/brainrotreport666/issues/new" target="_blank" rel="noopener">
+            <span class="ic">✍️</span><span class="t">New Issue</span>
+            <span class="d">Report a bug or pitch an episode.</span>
+          </a>
+          <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">
+            <span class="ic">⭐</span><span class="t">Star the Repo</span>
+            <span class="d">Bless the algorithm. Touch grass after.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ETHICS -->
     <section id="ethics">
       <div class="container">
@@ -256,9 +299,16 @@
         please seek professional help. All stats and claims are sourced in episode descriptions.
         © <span id="year">2026</span> Brainrot Report 666 — All Rights Reserved.
       </p>
+      <p class="repo-stats">
+        <a href="https://github.com/epicsereno/brainrotreport666/stargazers" target="_blank" rel="noopener">⭐ <span data-gh="stars">—</span> stars</a>
+        <a href="https://github.com/epicsereno/brainrotreport666/forks" target="_blank" rel="noopener">🍴 <span data-gh="forks">—</span> forks</a>
+        <a href="https://github.com/epicsereno/brainrotreport666/issues" target="_blank" rel="noopener">🐛 <span data-gh="issues">—</span> issues</a>
+      </p>
     </div>
   </footer>
 
+  <script src="assets/site/theme.js"></script>
+  <script src="assets/site/github.js"></script>
   <script src="assets/site/main.js"></script>
   <script type="module" src="assets/site/dashboard.js"></script>
 </body>

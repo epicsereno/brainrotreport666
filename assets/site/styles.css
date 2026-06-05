@@ -544,3 +544,45 @@ footer .disclaimer {
 @media (max-width: 760px) {
   .dash-split { grid-template-columns: 1fr; }
 }
+
+/* ---------- GITHUB INTEGRATION ---------- */
+.commit-feed { display: grid; gap: 0.5rem; }
+.commit-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.8rem; align-items: baseline;
+  padding: 0.7rem 0.9rem;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 9px;
+  text-decoration: none; color: var(--text); transition: border-color 0.15s, transform 0.1s;
+}
+.commit-item:hover { border-color: var(--neon); transform: translateX(3px); text-decoration: none; }
+.commit-sha { font-family: var(--mono); font-size: 0.78rem; color: var(--neon); }
+.commit-msg { font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.commit-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+.commit-note { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; }
+@media (max-width: 560px) {
+  .commit-item { grid-template-columns: auto 1fr; }
+  .commit-meta { grid-column: 2; }
+}
+
+.contribute-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.contribute-grid a {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  padding: 1.2rem; border-radius: 12px; text-decoration: none;
+  background: linear-gradient(160deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border); color: var(--text); transition: all 0.15s;
+}
+.contribute-grid a:hover { border-color: var(--purple); transform: translateY(-3px); box-shadow: 0 0 22px rgba(168,85,247,0.3); text-decoration: none; }
+.contribute-grid .ic { font-size: 1.6rem; }
+.contribute-grid .t { font-weight: 700; }
+.contribute-grid .d { font-size: 0.8rem; color: var(--muted); }
+@media (max-width: 720px) { .contribute-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* footer repo stats */
+.repo-stats {
+  display: inline-flex; gap: 1.1rem; flex-wrap: wrap; justify-content: center;
+  margin-top: 1.4rem; font-family: var(--mono); font-size: 0.82rem;
+}
+.repo-stats a { color: var(--muted); text-decoration: none; }
+.repo-stats a:hover { color: var(--neon); }
+.repo-stats [data-gh] { color: var(--text); font-weight: 700; }
