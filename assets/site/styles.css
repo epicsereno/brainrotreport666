@@ -241,6 +241,13 @@ h2.section-title {
 
 /* episode cards */
 .ep-card { display: flex; flex-direction: column; }
+.ep-card[data-ep] { cursor: pointer; }
+.ep-card[data-ep]:focus-visible { outline: 2px solid var(--neon); outline-offset: 3px; }
+.ep-open {
+  margin-top: 1rem; font-family: var(--mono); font-size: 0.82rem;
+  color: var(--neon); letter-spacing: 0.04em;
+}
+.ep-card:hover .ep-open { color: var(--purple); }
 .ep-thumb {
   aspect-ratio: 16 / 9;
   border-radius: 10px;
@@ -441,6 +448,15 @@ footer .disclaimer {
 .filter-btn:hover { color: var(--text); border-color: var(--purple); }
 .filter-btn.filter-active { color: #04110b; background: var(--neon); border-color: var(--neon); box-shadow: 0 0 18px rgba(0,255,159,0.45); }
 .result-count { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+.sort-select {
+  font-family: var(--mono); font-size: 0.82rem; color: var(--text);
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 999px; padding: 0.4rem 0.9rem; cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.sort-select:hover { border-color: var(--purple); }
+.sort-select:focus { outline: none; border-color: var(--neon); box-shadow: 0 0 0 3px rgba(0,255,159,0.15); }
+.sort-select option { background: var(--panel); color: var(--text); }
 
 /* episode tag pills */
 .ep-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.6rem 0; }

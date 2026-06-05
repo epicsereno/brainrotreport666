@@ -29,6 +29,7 @@
         <a href="departments.html">Departments</a>
         <a href="workflow.html">Workflow</a>
         <a href="ethics.html">Ethics</a>
+        <a href="contribute.html">Contribute</a>
         <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
         <button class="theme-btn" aria-label="Toggle theme" title="Toggle light/dark">☀️</button>
       </nav>
@@ -65,6 +66,15 @@
             <button class="filter-btn" data-filter="incoming" aria-pressed="false">Incoming</button>
             <button class="filter-btn" data-filter="in-prod" aria-pressed="false">In-Prod</button>
             <button class="filter-btn" data-filter="released" aria-pressed="false">Released</button>
+          </div>
+          <div class="filter-row">
+            <span class="lbl">sort:</span>
+            <select id="sort" class="sort-select" aria-label="Sort episodes">
+              <option value="date-desc">Newest first</option>
+              <option value="date-asc">Oldest first</option>
+              <option value="stage">Pipeline stage</option>
+              <option value="title">Title A–Z</option>
+            </select>
             <span class="result-count" id="result-count"></span>
           </div>
         </div>
@@ -93,8 +103,8 @@
     </section>
   </main>
 
-  <!-- TEASER MODAL -->
-  <div class="modal" id="teaser-modal" role="dialog" aria-modal="true" aria-label="Episode teaser">
+  <!-- EPISODE DETAILS MODAL -->
+  <div class="modal" id="teaser-modal" role="dialog" aria-modal="true" aria-label="Episode details">
     <div class="modal-box">
       <button class="modal-close" aria-label="Close">✕</button>
       <div id="teaser-modal-body"></div>
@@ -104,7 +114,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p class="kicker">Like · Subscribe · Touch Grass</p>
+      <p class="kicker">Secretly Ethical • Touch Grass • 666</p>
       <h2 class="section-title" style="font-size:1.6rem">New drops, same based backbone.</h2>
       <a class="btn btn-ghost" href="index.html">← Back to base</a>
       <p class="disclaimer">

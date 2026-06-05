@@ -3,39 +3,33 @@
 (function () {
   "use strict";
 
-  /* ---- mobile menu ---- */
-  var menuBtn = document.querySelector(".menu-btn");
-  var navLinks = document.querySelector(".nav-links");
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", function () {
-      navLinks.classList.toggle("open");
-    });
-    navLinks.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") navLinks.classList.remove("open");
-    });
-  }
+  /* mobile menu + theme toggle + year handled globally by theme.js */
 
-  /* theme toggle handled globally by theme.js */
-
-  /* ---- episode loader ---- */
+  /* ---- episode loader (drives both the grid and the spotlight, live from JSON) ---- */
   var grid = document.getElementById("episode-grid");
-  if (grid) {
+  var spotlight = document.getElementById("spotlight");
+  if (grid || spotlight) {
     fetch("assets/site/episodes.json")
       .then(function (r) {
         if (!r.ok) throw new Error("episodes.json " + r.status);
         return r.json();
       })
       .then(function (data) {
-        var eps = (data && data.episodes) || [];
+        var eps = ((data && data.episodes) || []).slice()
+          .sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); }); // newest first
         if (!eps.length) {
-          grid.innerHTML = '<p class="section-sub">No drops yet. The rot is loading...</p>';
+          if (grid) grid.innerHTML = '<p class="section-sub">No drops yet. The rot is loading...</p>';
+          if (spotlight) spotlight.innerHTML = '<p class="empty-state" style="grid-column:1/-1">No drops yet.</p>';
           return;
         }
-        grid.innerHTML = eps.map(renderEpisode).join("");
+        if (spotlight) spotlight.innerHTML = renderSpotlight(eps[0]);
+        if (grid) grid.innerHTML = eps.map(renderEpisode).join("");
       })
       .catch(function (err) {
-        grid.innerHTML = '<p class="section-sub">Could not load episodes (' +
+        var msg = '<p class="section-sub">Could not load episodes (' +
           String(err.message) + "). Run from a web server, not file://.</p>";
+        if (grid) grid.innerHTML = msg;
+        if (spotlight) spotlight.innerHTML = msg;
       });
   }
 
@@ -49,6 +43,28 @@
     incoming: "Incoming", "in-progress": "In-Prod", review: "In-Prod",
     ready: "In-Prod", published: "Released", archived: "Released"
   };
+
+  function renderSpotlight(ep) {
+    var statusClass = esc(ep.status || "incoming");
+    var statusText = STATUS_LABEL[ep.status] || ep.status || "incoming";
+    return (
+      '<div class="spotlight-thumb">' + esc(ep.thumb || ep.id || "BR666") + "</div>" +
+      '<div class="spotlight-body">' +
+        '<div class="spotlight-meta">' +
+          '<span class="badge ' + statusClass + '">' + esc(statusText) + "</span>" +
+          '<span class="ep-date">' + esc(ep.date || "TBA") + "</span>" +
+          (ep.runtime ? '<span class="ep-date">⏱ ' + esc(ep.runtime) + "</span>" : "") +
+        "</div>" +
+        "<h2>" + esc(ep.id ? ep.id + " — " : "") + esc(ep.title || "Untitled") + "</h2>" +
+        '<p class="desc">' + esc(ep.description || "") + "</p>" +
+        '<div class="cta-row" style="justify-content:flex-start">' +
+          '<a class="btn btn-primary" href="episodes.html">▶ Full Details</a>' +
+          '<a class="btn btn-ghost" href="' + (ep.link ? esc(ep.link) : "episodes.html") +
+            '" target="_blank" rel="noopener">Source ↗</a>' +
+        "</div>" +
+      "</div>"
+    );
+  }
 
   function renderEpisode(ep) {
     var statusClass = esc(ep.status || "incoming");
@@ -89,8 +105,4 @@
     };
     tick();
   }
-
-  /* ---- year ---- */
-  var yr = document.getElementById("year");
-  if (yr) yr.textContent = new Date().getFullYear();
 })();
