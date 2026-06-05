@@ -3,19 +3,7 @@
 (function () {
   "use strict";
 
-  /* ---- mobile menu ---- */
-  var menuBtn = document.querySelector(".menu-btn");
-  var navLinks = document.querySelector(".nav-links");
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", function () {
-      navLinks.classList.toggle("open");
-    });
-    navLinks.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") navLinks.classList.remove("open");
-    });
-  }
-
-  /* theme toggle handled globally by theme.js */
+  /* mobile menu + theme toggle + year handled globally by theme.js */
 
   /* ---- episode loader ---- */
   var grid = document.getElementById("episode-grid");
@@ -89,8 +77,4 @@
     };
     tick();
   }
-
-  /* ---- year ---- */
-  var yr = document.getElementById("year");
-  if (yr) yr.textContent = new Date().getFullYear();
 })();

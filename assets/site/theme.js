@@ -17,4 +17,32 @@
       syncLabels();
     });
   });
+
+  /* ---- universal mobile menu (hamburger), loaded on every page ---- */
+  var menuBtn = document.querySelector(".menu-btn");
+  var navLinks = document.querySelector(".nav-links");
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", function () {
+      var open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    navLinks.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+    // close on Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ---- year stamp in footers, every page ---- */
+  document.querySelectorAll("#year").forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
 })();

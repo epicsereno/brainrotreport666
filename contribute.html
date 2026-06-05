@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribute — Brainrot Report 666</title>
+  <meta name="description" content="Join the conspiracy (to be good). How to contribute to Brainrot Report 666 — the PR workflow, naming conventions, episode IDs, what we need, and the code of conduct. Open source, secretly ethical." />
+  <meta name="keywords" content="contribute, brainrot report, open source, pull request, contribution guide, secretly ethical, good first issue" />
+  <meta name="theme-color" content="#07060a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contribute — Brainrot Report 666" />
+  <meta property="og:description" content="Open source, secretly ethical. Pull up — issues and PRs welcome." />
+  <meta property="og:url" content="https://epicsereno.github.io/brainrotreport666/contribute.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contribute — Brainrot Report 666" />
+  <meta name="twitter:description" content="Join the conspiracy (to be good)." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💀</text></svg>" />
+  <link rel="stylesheet" href="assets/site/styles.css" />
+  <style>
+    /* page-local accents (kept tiny; the design system carries the rest) */
+    .step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .step-card { position: relative; }
+    .step-card .step-n {
+      font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.18em;
+      color: var(--purple); text-transform: uppercase;
+    }
+    .step-card h3 { font-size: 1.1rem; margin: 0.4rem 0 0.4rem; }
+    .step-card p { color: var(--muted); font-size: 0.92rem; }
+    .step-card code { font-family: var(--mono); color: var(--neon); background: var(--bg-soft);
+      border: 1px solid var(--border); border-radius: 6px; padding: 0.05rem 0.4rem; font-size: 0.82rem; }
+    .needs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .need .role { min-height: 0; }
+    .conv-table code { color: var(--neon); font-family: var(--mono); }
+    .coc { border-left: 3px solid var(--purple); background: var(--panel);
+      padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; color: var(--text); }
+    @media (max-width: 760px) {
+      .step-grid { grid-template-columns: 1fr; }
+      .needs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top">
+        <span class="skull">💀</span>
+        <span>BRAINROT REPORT <span class="six">666</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="episodes.html">Episodes</a>
+        <a href="departments.html">Departments</a>
+        <a href="workflow.html">Workflow</a>
+        <a href="ethics.html">Ethics</a>
+        <a href="contribute.html">Contribute</a>
+        <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
+        <button class="theme-btn" aria-label="Toggle theme" title="Toggle light/dark">☀️</button>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HEADER -->
+    <section style="padding-top:3.5rem;padding-bottom:1rem">
+      <div class="container">
+        <p class="kicker">// Join The Conspiracy (To Be Good)</p>
+        <h1 style="font-size:clamp(2rem,6vw,3.4rem);font-weight:900;margin:0.3rem 0 0.8rem;line-height:1.05">
+          PULL UP &amp; <span class="glitch" data-text="CONTRIBUTE">CONTRIBUTE</span>
+        </h1>
+        <p class="section-sub" style="max-width:58ch">
+          Open source, secretly ethical. Whether you're shipping an episode pitch, squashing a bug,
+          or tightening a doc — the door's open. Read the gates, fork it, send it.
+        </p>
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="btn btn-primary" href="https://github.com/epicsereno/brainrotreport666/issues/new" target="_blank" rel="noopener">✍️ Open an Issue</a>
+          <a class="btn btn-ghost" href="https://github.com/epicsereno/brainrotreport666/fork" target="_blank" rel="noopener">🍴 Fork the Repo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK LINKS GRID -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Quick Pull-Ups</p>
+        <h2 class="section-title" style="font-size:1.9rem">Where to Jump In</h2>
+        <p class="section-sub">Four front doors. Pick one and bless the algorithm.</p>
+        <div class="contribute-grid">
+          <a href="https://github.com/epicsereno/brainrotreport666/issues" target="_blank" rel="noopener">
+            <span class="ic">🐛</span><span class="t">Open Issues</span>
+            <span class="d">Bugs, ideas, and chaos to squash.</span>
+          </a>
+          <a href="https://github.com/epicsereno/brainrotreport666/pulls" target="_blank" rel="noopener">
+            <span class="ic">🔀</span><span class="t">Pull Requests</span>
+            <span class="d">See what's cooking in review.</span>
+          </a>
+          <a href="https://github.com/epicsereno/brainrotreport666/issues/new" target="_blank" rel="noopener">
+            <span class="ic">✍️</span><span class="t">New Issue</span>
+            <span class="d">Report a bug or pitch an episode.</span>
+          </a>
+          <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">
+            <span class="ic">⭐</span><span class="t">Star the Repo</span>
+            <span class="d">Bless the algorithm. Touch grass after.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (steps) -->
+    <section>
+      <div class="container">
+        <p class="kicker">// The Pull-Request Pipeline</p>
+        <h2 class="section-title" style="font-size:1.9rem">How a Contribution Flows</h2>
+        <p class="section-sub">
+          Same energy as the episode pipeline: every change runs the gates before it hits
+          <code>main</code>. Public face is effortless; private practice is airtight.
+        </p>
+        <div class="step-grid">
+          <div class="card step-card">
+            <span class="step-n">step 01</span>
+            <h3>🍴 Fork &amp; branch</h3>
+            <p>Branch off using the house style: <code>bRaiNRoTRePoRt666X/&lt;topic&gt;-patch-1</code>. One focused change per branch.</p>
+          </div>
+          <div class="card step-card">
+            <span class="step-n">step 02</span>
+            <h3>🛠️ Make the change</h3>
+            <p>Follow the naming conventions below. Never overwrite assets — always bump the <code>-vN</code> version.</p>
+          </div>
+          <div class="card step-card">
+            <span class="step-n">step 03</span>
+            <h3>⚖️ Run the gates</h3>
+            <p>Sanity-check ethics with <code>./scripts/reports/campaign-ethics.sh</code> and keep episode metadata in sync with <code>metadata/episodes/template.json</code>.</p>
+          </div>
+          <div class="card step-card">
+            <span class="step-n">step 04</span>
+            <h3>🔀 Open a PR</h3>
+            <p>Target <code>main</code>. Describe the what + the why. Link any related issue or episode ID.</p>
+          </div>
+          <div class="card step-card">
+            <span class="step-n">step 05</span>
+            <h3>👀 Review</h3>
+            <p>A maintainer reviews against the secretly-ethical checklist. Address feedback on the same branch.</p>
+          </div>
+          <div class="card step-card">
+            <span class="step-n">step 06</span>
+            <h3>✅ Merged</h3>
+            <p>It lands on <code>main</code> and ships to Pages. You did a based thing. Now go touch grass. 🌱</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOW DIAGRAM -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Visualized</p>
+        <h2 class="section-title" style="font-size:1.7rem">Contribution Flow</h2>
+        <p class="section-sub">Scroll to zoom, drag to pan, export from the toolbar — same engine as the Workflow page.</p>
+        <div id="contribute-flow"><p class="empty-state">rendering flow…</p></div>
+      </div>
+    </section>
+
+    <!-- CONVENTIONS -->
+    <section>
+      <div class="container">
+        <p class="kicker">// House Rules</p>
+        <h2 class="section-title" style="font-size:1.9rem">Naming Conventions</h2>
+        <p class="section-sub">
+          Keep the filing system clean and the bots happy. Full spec lives in
+          <code>departments/creative/NAMING_CONVENTION.md</code>.
+        </p>
+        <table class="ethics-table conv-table">
+          <thead>
+            <tr><th>Thing</th><th>Format</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Asset files</td><td><code>{DEPT}-{EPISODE}-{TYPE}-{descriptor}-v{N}.{ext}</code></td><td><code>SCRIPT-EP003-FINAL-v3.md</code></td></tr>
+            <tr><td>Episode IDs</td><td><code>EP</code> + 3-digit zero-pad</td><td><code>EP001</code>, <code>EP042</code></td></tr>
+            <tr><td>Dept prefixes</td><td><code>GFX</code> · <code>SB</code> · <code>THUMB</code> · <code>SCRIPT</code></td><td><code>THUMB-EP010-DRAFT-v1.png</code></td></tr>
+            <tr><td>Branches</td><td><code>bRaiNRoTRePoRt666X/&lt;topic&gt;-patch-N</code></td><td><code>...X/episodes-page-patch-2</code></td></tr>
+            <tr><td>Versioning</td><td>Never overwrite — increment <code>-vN</code></td><td><code>v1 → v2 → v3</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- WHAT WE NEED -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Good First Contributions</p>
+        <h2 class="section-title" style="font-size:1.9rem">What the Empire Needs</h2>
+        <p class="section-sub">No skill wasted. Every department takes pull-ups — pick your lane.</p>
+        <div class="needs-grid">
+          <div class="card dept need">
+            <div class="dept-icon">🎬</div>
+            <h3>Creative</h3>
+            <p class="role">Pitch an episode, draft a script, or design a thumbnail concept.</p>
+            <p class="ethic"><span>gate:</span> claims fact-checked, sources logged</p>
+          </div>
+          <div class="card dept need">
+            <div class="dept-icon">🛠️</div>
+            <h3>Tooling &amp; Scripts</h3>
+            <p class="role">Build the documented-but-missing scripts: <code>new-episode.sh</code>, <code>lint-script.sh</code>, <code>track-assets.py</code>.</p>
+            <p class="ethic"><span>gate:</span> match the documented interfaces</p>
+          </div>
+          <div class="card dept need">
+            <div class="dept-icon">🌐</div>
+            <h3>Site &amp; Docs</h3>
+            <p class="role">Polish these GitHub Pages, fix typos, improve accessibility, expand the README.</p>
+            <p class="ethic"><span>gate:</span> keep the dual public/private framing</p>
+          </div>
+          <div class="card dept need">
+            <div class="dept-icon">⚖️</div>
+            <h3>Ethics &amp; Compliance</h3>
+            <p class="role">Tighten the checklist, add detox resources, audit disclosures and the based backbone.</p>
+            <p class="ethic"><span>gate:</span> never cross a red line</p>
+          </div>
+        </div>
+        <p style="margin-top:1.6rem">
+          <a class="btn btn-ghost" href="departments.html">See all 8 departments →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- CODE OF CONDUCT -->
+    <section>
+      <div class="container">
+        <p class="kicker">// The Based Backbone</p>
+        <h2 class="section-title" style="font-size:1.9rem">Code of Conduct</h2>
+        <p class="section-sub">
+          The whole bit is that it's actually real. Contributors hold the same line as the content.
+        </p>
+        <div class="coc">
+          <p style="margin-bottom:0.8rem">
+            Be excellent to each other. We're loud and unhinged in public and genuinely kind in private.
+            By contributing you agree to keep the campaign <strong>secretly ethical</strong>:
+          </p>
+          <ul class="redlines" style="margin-top:0.6rem">
+            <li>❌ No harassment, hate, or targeted attacks — in issues, PRs, or content</li>
+            <li>❌ No misinformation; cite sources for any factual claim</li>
+            <li>❌ No undisclosed paid promotion or stolen/unlicensed assets</li>
+            <li>❌ No exploitation for clout — community benefit comes first</li>
+          </ul>
+          <p style="margin-top:0.9rem;color:var(--muted);font-size:0.9rem">
+            Read the full philosophy in <a href="ethics.html">the Ethics Manifesto</a> and
+            <code>docs/ethics/campaign-principles.md</code>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE FROM THE REPO -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Live From The Repo</p>
+        <h2 class="section-title" style="font-size:1.9rem">Recent Activity</h2>
+        <p class="section-sub">
+          Pulled live from <a href="https://github.com/epicsereno/brainrotreport666/commits" target="_blank" rel="noopener">the source</a>.
+          Your commit could be next.
+        </p>
+        <div class="commit-feed" id="commit-feed">
+          <p class="empty-state">Pulling commits from GitHub…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="kicker">Secretly Ethical • Touch Grass • 666</p>
+      <h2 class="section-title" style="font-size:1.6rem">Build with us, legends.</h2>
+      <a class="btn btn-ghost" href="index.html">← Back to base</a>
+      <p class="disclaimer">
+        Entertainment purposes only. Contribution guidelines reflect the documented workflow; some
+        referenced scripts are specs awaiting implementation.
+        © <span id="year">2026</span> Brainrot Report 666 — All Rights Reserved.
+      </p>
+      <p class="repo-stats">
+        <a href="https://github.com/epicsereno/brainrotreport666/stargazers" target="_blank" rel="noopener">⭐ <span data-gh="stars">—</span> stars</a>
+        <a href="https://github.com/epicsereno/brainrotreport666/forks" target="_blank" rel="noopener">🍴 <span data-gh="forks">—</span> forks</a>
+        <a href="https://github.com/epicsereno/brainrotreport666/issues" target="_blank" rel="noopener">🐛 <span data-gh="issues">—</span> issues</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/site/theme.js"></script>
+  <script src="assets/site/github.js"></script>
+  <script type="module" src="assets/site/contribute.js"></script>
+</body>
+</html>
