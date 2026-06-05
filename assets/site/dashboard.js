@@ -2,21 +2,7 @@
    Fake-but-honest metrics, EP001 pipeline progress bars tied to a Mermaid diagram,
    and a Touch Grass counter. */
 
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-mermaid.initialize({
-  startOnLoad: false,
-  securityLevel: "strict",
-  theme: "base",
-  themeVariables: {
-    background: "#0b0911",
-    primaryColor: "#14111d",
-    primaryBorderColor: "#2a2440",
-    primaryTextColor: "#e8e6f0",
-    lineColor: "#00ff9f",
-    fontFamily: "Consolas, monospace",
-  },
-});
+import { render as renderDiagram } from "./mermaid-tools.js";
 
 /* EP001 pipeline stages (mock production state) */
 const STAGES = [
@@ -56,13 +42,8 @@ async function renderPipeline() {
 ${classLines}
   classDef done fill:#00ff9f,stroke:#00ff9f,color:#04110b,font-weight:bold
   classDef current fill:#a855f7,stroke:#a855f7,color:#ffffff,font-weight:bold`;
-  try {
-    const { svg } = await mermaid.render("ep1-pipeline-svg", def);
-    wrap.innerHTML = svg;
-  } catch (err) {
-    wrap.innerHTML = '<pre style="text-align:left;color:var(--muted);font-size:0.72rem">' +
-      def.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])) + "</pre>";
-  }
+  try { await renderDiagram(wrap, def, { id: "ep1-pipeline-svg", toolbar: true }); }
+  catch (err) { /* helper renders its own fallback */ }
 }
 renderPipeline();
 

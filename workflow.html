@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow — Brainrot Report 666</title>
+  <meta name="description" content="The Brainrot Report 666 production pipeline, visualized: an interactive animated flowchart, the handoff.sh sequence diagram, and the full episode Gantt timeline. Zoom, pan, export." />
+  <meta name="theme-color" content="#07060a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Workflow — Brainrot Report 666" />
+  <meta property="og:description" content="Interactive pipeline diagrams: flowchart, sequence, Gantt. Click the nodes." />
+  <meta property="og:url" content="https://epicsereno.github.io/brainrotreport666/workflow.html" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💀</text></svg>" />
+  <link rel="stylesheet" href="assets/site/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top">
+        <span class="skull">💀</span>
+        <span>BRAINROT REPORT <span class="six">666</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="episodes.html">Episodes</a>
+        <a href="departments.html">Departments</a>
+        <a href="workflow.html">Workflow</a>
+        <a href="ethics.html">Ethics</a>
+        <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
+        <button class="theme-btn" aria-label="Toggle theme" title="Toggle light/dark">☀️</button>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding-top:3.5rem;padding-bottom:1rem">
+      <div class="container">
+        <p class="kicker">// The Pipeline, Live</p>
+        <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:900;margin:0.3rem 0 0.8rem">Workflow Visualizer</h1>
+        <p class="section-sub">
+          Every diagram below is interactive: <strong>scroll to zoom</strong>, <strong>drag to pan</strong>,
+          and <strong>export to SVG/PNG</strong> from the toolbar. Click a node in the pipeline for details.
+        </p>
+      </div>
+    </section>
+
+    <!-- ANIMATED FLOWCHART -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Pipeline Flow (click a node)</p>
+        <h2 class="section-title" style="font-size:1.7rem">Episode Pipeline</h2>
+        <div class="mm-legend">
+          <span><i class="lg-complete"></i> Complete</span>
+          <span><i class="lg-active"></i> Active</span>
+          <span><i class="lg-blocked"></i> Blocked</span>
+          <span><i class="lg-pending"></i> Pending</span>
+        </div>
+        <div id="diagram-flow"><p class="empty-state">rendering flowchart…</p></div>
+        <div class="mm-controls">
+          <button class="btn btn-primary" id="wf-advance">▶ Advance stage</button>
+          <button class="btn btn-ghost" id="wf-back">◀ Step back</button>
+          <button class="btn btn-ghost" id="wf-block">⛔ Block current</button>
+          <button class="btn btn-ghost" id="wf-reset">⟳ Reset</button>
+        </div>
+        <p class="section-sub" style="margin-top:1rem">
+          The buttons call <code>setStatus()</code> on the live SVG — marking nodes COMPLETE / ACTIVE /
+          BLOCKED at runtime without re-rendering.
+        </p>
+      </div>
+    </section>
+
+    <!-- SEQUENCE DIAGRAM -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Script Execution</p>
+        <h2 class="section-title" style="font-size:1.7rem">handoff.sh — Sequence</h2>
+        <p class="section-sub">What actually happens when you run <code>./scripts/workflow/handoff.sh EP001 creative production</code>.</p>
+        <div id="diagram-seq"><p class="empty-state">rendering sequence…</p></div>
+      </div>
+    </section>
+
+    <!-- GANTT -->
+    <section>
+      <div class="container">
+        <p class="kicker">// Schedule</p>
+        <h2 class="section-title" style="font-size:1.7rem">EP001 — Full Timeline</h2>
+        <p class="section-sub">Creative → Production → Post → Distribution, mapped to dates.</p>
+        <div id="diagram-gantt"><p class="empty-state">rendering gantt…</p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- NODE MODAL -->
+  <div class="modal" id="workflow-modal" role="dialog" aria-modal="true" aria-label="Stage details">
+    <div class="modal-box" style="text-align:center">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div id="workflow-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="kicker">Like · Subscribe · Touch Grass</p>
+      <h2 class="section-title" style="font-size:1.6rem">The machine, fully mapped.</h2>
+      <a class="btn btn-ghost" href="index.html">← Back to base</a>
+      <p class="disclaimer">
+        Entertainment purposes only. Diagrams reflect the documented production system; timelines are
+        illustrative. © <span id="year">2026</span> Brainrot Report 666.
+      </p>
+      <p class="repo-stats">
+        <a href="https://github.com/epicsereno/brainrotreport666/stargazers" target="_blank" rel="noopener">⭐ <span data-gh="stars">—</span> stars</a>
+        <a href="https://github.com/epicsereno/brainrotreport666/forks" target="_blank" rel="noopener">🍴 <span data-gh="forks">—</span> forks</a>
+        <a href="https://github.com/epicsereno/brainrotreport666/issues" target="_blank" rel="noopener">🐛 <span data-gh="issues">—</span> issues</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/site/theme.js"></script>
+  <script src="assets/site/github.js"></script>
+  <script type="module" src="assets/site/workflow.js"></script>
+</body>
+</html>

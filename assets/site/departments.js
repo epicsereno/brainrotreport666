@@ -2,23 +2,7 @@
    Renders dept cards, filter (Core/Support), modals w/ manifesto + Mermaid sub-workflow.
    ES module: imports Mermaid from CDN. */
 
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-mermaid.initialize({
-  startOnLoad: false,
-  securityLevel: "strict",
-  theme: "base",
-  themeVariables: {
-    background: "#0e0c14",
-    primaryColor: "#14111d",
-    primaryBorderColor: "#a855f7",
-    primaryTextColor: "#e8e6f0",
-    lineColor: "#00ff9f",
-    secondaryColor: "#1b1726",
-    tertiaryColor: "#14111d",
-    fontFamily: "Consolas, monospace",
-  },
-});
+import { render as renderDiagram } from "./mermaid-tools.js";
 
 /* ---- DATA (the 8 requested departments) ---- */
 const DEPTS = [
@@ -220,7 +204,6 @@ applyFilter("all");
 /* ---- modal ---- */
 const modal = document.getElementById("dept-modal");
 const modalBody = document.getElementById("dept-modal-body");
-const diagramCache = {};
 let lastFocused = null;
 
 async function openModal(id) {
@@ -253,18 +236,9 @@ async function openModal(id) {
   if (closeBtn) closeBtn.focus();
 
   const wrap = document.getElementById("dept-diagram");
-  try {
-    if (!diagramCache[id]) {
-      const { svg } = await mermaid.render("mmd-" + id, d.mermaid);
-      diagramCache[id] = svg;
-    }
-    if (wrap) wrap.innerHTML = diagramCache[id];
-  } catch (err) {
-    if (wrap)
-      wrap.innerHTML =
-        '<pre class="text-left text-xs text-rot-muted whitespace-pre-wrap">' +
-        esc(d.mermaid) +
-        "</pre>";
+  if (wrap) {
+    try { await renderDiagram(wrap, d.mermaid, { toolbar: true }); }
+    catch (err) { /* helper renders its own fallback */ }
   }
 }
 

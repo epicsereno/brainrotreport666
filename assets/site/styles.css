@@ -586,3 +586,56 @@ footer .disclaimer {
 .repo-stats a { color: var(--muted); text-decoration: none; }
 .repo-stats a:hover { color: var(--neon); }
 .repo-stats [data-gh] { color: var(--text); font-weight: 700; }
+
+/* ---------- MERMAID TOOLS ---------- */
+.mm-container { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #0b0911; }
+.mm-toolbar { display: flex; gap: 0.3rem; align-items: center; padding: 0.5rem; border-bottom: 1px solid var(--border); background: var(--panel); }
+.mm-toolbar button {
+  font-family: var(--mono); font-size: 0.78rem; min-width: 34px; height: 30px;
+  padding: 0 0.6rem; border: 1px solid var(--border); border-radius: 7px;
+  background: var(--panel-2); color: var(--text); cursor: pointer; transition: all 0.12s;
+}
+.mm-toolbar button:hover { border-color: var(--neon); color: var(--neon); }
+.mm-toolbar .mm-sep { flex: 1; }
+.mm-viewport { position: relative; overflow: hidden; height: clamp(240px, 42vh, 460px); cursor: grab; touch-action: none; }
+.mm-viewport.grabbing { cursor: grabbing; }
+.mm-stage { transform-origin: 0 0; transition: transform 0.05s linear; padding: 1rem; display: inline-block; }
+.mm-stage svg { display: block; }
+.mm-error { padding: 1rem; color: var(--muted); font-size: 0.72rem; text-align: left; white-space: pre-wrap; }
+.mm-clickable:hover { filter: drop-shadow(0 0 6px var(--neon)); }
+
+/* runtime status recolor (override mermaid classDef inline fills) */
+g.node.mm-complete rect, g.node.mm-complete polygon, g.node.mm-complete circle, g.node.mm-complete path,
+g.node.mm-complete .label-container {
+  fill: var(--neon) !important; stroke: var(--neon-dim) !important;
+}
+g.node.mm-complete .nodeLabel, g.node.mm-complete span, g.node.mm-complete foreignObject div { color: #04110b !important; fill: #04110b !important; font-weight: 700; }
+g.node.mm-active rect, g.node.mm-active polygon, g.node.mm-active circle, g.node.mm-active path,
+g.node.mm-active .label-container {
+  fill: var(--purple) !important; stroke: var(--purple) !important;
+}
+g.node.mm-active .nodeLabel, g.node.mm-active span, g.node.mm-active foreignObject div { color: #fff !important; fill: #fff !important; }
+g.node.mm-blocked rect, g.node.mm-blocked polygon, g.node.mm-blocked circle, g.node.mm-blocked path,
+g.node.mm-blocked .label-container {
+  fill: var(--danger) !important; stroke: var(--danger) !important;
+}
+g.node.mm-blocked .nodeLabel, g.node.mm-blocked span, g.node.mm-blocked foreignObject div { color: #fff !important; fill: #fff !important; }
+
+/* status legend + controls */
+.mm-legend { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 1rem 0; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.mm-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.mm-legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+.mm-legend .lg-complete { background: var(--neon); }
+.mm-legend .lg-active { background: var(--purple); }
+.mm-legend .lg-blocked { background: var(--danger); }
+.mm-legend .lg-pending { background: var(--border); }
+.mm-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+
+/* animated flowchart edges */
+.mm-animated .edgePaths path, .mm-animated path.flowchart-link {
+  stroke-dasharray: 6 6; animation: dashflow 0.8s linear infinite;
+}
+@keyframes dashflow { to { stroke-dashoffset: -24; } }
+@media (prefers-reduced-motion: reduce) {
+  .mm-animated .edgePaths path, .mm-animated path.flowchart-link { animation: none; }
+}

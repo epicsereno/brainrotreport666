@@ -2,21 +2,7 @@
    Spotlight, searchable/filterable grid, teaser modal, Mermaid workflow status.
    ES module: imports Mermaid from CDN. */
 
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-mermaid.initialize({
-  startOnLoad: false,
-  securityLevel: "strict",
-  theme: "base",
-  themeVariables: {
-    background: "#0b0911",
-    primaryColor: "#14111d",
-    primaryBorderColor: "#a855f7",
-    primaryTextColor: "#e8e6f0",
-    lineColor: "#00ff9f",
-    fontFamily: "Consolas, monospace",
-  },
-});
+import { render as renderDiagram } from "./mermaid-tools.js";
 
 /* canonical status -> { label, node id in the pipeline } */
 const STATUS = {
@@ -209,12 +195,8 @@ async function renderWorkflow() {
   L --> A[Archived]
   class ${node} current
   classDef current fill:#00ff9f,stroke:#00ff9f,color:#04110b,font-weight:bold`;
-  try {
-    const { svg } = await mermaid.render("ep-workflow", def);
-    wrap.innerHTML = svg;
-  } catch (err) {
-    wrap.innerHTML = '<pre style="text-align:left;color:var(--muted);font-size:0.75rem">' + esc(def) + "</pre>";
-  }
+  try { await renderDiagram(wrap, def, { id: "ep-workflow", toolbar: true }); }
+  catch (err) { /* helper renders its own fallback */ }
 }
 
 /* ---- shared chrome ---- */
