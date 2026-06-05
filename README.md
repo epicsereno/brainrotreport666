@@ -1,13 +1,13 @@
-# self-titled
 
-> **brainrot report 666** — Secretly Ethical Campaign Production System
+
+> **brainrot report 666** — Campaign Production System
 
 ### 🌐 Live site → **[epicsereno.github.io/brainrotreport666](https://epicsereno.github.io/brainrotreport666/)**
 
 ## 🎯 Mission
 
-A multi-department periodical content production system operating as a
-**secretly ethical campaign** — creating compelling content while maintaining
+A multi-department periodical content production system operating as 
+**brainrot report** — creating compelling content while maintaining
 integrity, transparency, and positive impact behind the scenes.
 
 ## 🏢 Departments
