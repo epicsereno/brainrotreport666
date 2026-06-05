@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Departments HQ — Brainrot Report 666</title>
+  <meta name="description" content="The 8 departments of the Brainrot Report 666 media empire — Core Pipeline & Support. Interactive cards with manifestos and sub-workflows. Secretly ethical, maximally based." />
+  <meta name="keywords" content="brainrot report departments, creative, production, post-production, distribution, analytics, ethics review, talent casting" />
+  <meta name="theme-color" content="#07060a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Departments HQ — Brainrot Report 666" />
+  <meta property="og:description" content="8 departments. 1 conspiracy (to be good). Explore the machine." />
+  <meta property="og:url" content="https://epicsereno.github.io/brainrotreport666/departments.html" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💀</text></svg>" />
+
+  <!-- Tailwind (Play CDN) — neon palette to match the site -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "rot-lime": "#00ff9f",
+            "rot-purple": "#a855f7",
+            "rot-black": "#07060a",
+            "rot-text": "#e8e6f0",
+            "rot-muted": "#9a93b5",
+          },
+          fontFamily: { mono: ["Consolas", "monospace"] },
+        },
+      },
+    };
+  </script>
+  <!-- shared chrome (nav/footer/background) from the existing design system -->
+  <link rel="stylesheet" href="assets/site/styles.css" />
+  <style>
+    /* glow + filter accents Tailwind can't express inline */
+    .dept-card:hover { box-shadow: 0 0 30px rgba(0, 255, 159, 0.18), 0 14px 40px rgba(0, 0, 0, 0.5); }
+    .dept-card[data-category="support"]:hover { box-shadow: 0 0 30px rgba(168, 85, 247, 0.22), 0 14px 40px rgba(0, 0, 0, 0.5); }
+    .status-dot { animation: blink 1.6s ease-in-out infinite; box-shadow: 0 0 8px #00ff9f; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+    .filter-btn { border: 1px solid var(--border); color: var(--muted); background: var(--panel); }
+    .filter-btn.filter-active { color: #04110b; background: var(--neon); border-color: var(--neon); box-shadow: 0 0 18px rgba(0,255,159,0.45); }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+    @media (prefers-reduced-motion: reduce) { .status-dot { animation: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV (matches index.html) -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top">
+        <span class="skull">💀</span>
+        <span>BRAINROT REPORT <span class="six">666</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#episodes">Episodes</a>
+        <a href="departments.html">Departments</a>
+        <a href="index.html#workflow">Workflow</a>
+        <a href="index.html#ethics">Ethics</a>
+        <a href="https://github.com/epicsereno/brainrotreport666" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="pt-16 pb-8">
+      <div class="container">
+        <p class="kicker">// The Machine</p>
+        <h1 class="text-4xl md:text-5xl font-black mt-2 mb-3">Departments HQ</h1>
+        <p class="text-rot-muted max-w-2xl">
+          Eight departments, one conspiracy — to be good. Each runs its own checklist and review
+          gate. Tap a card for the full manifesto and its sub-workflow.
+        </p>
+
+        <!-- filters -->
+        <div class="flex flex-wrap gap-2 mt-7" role="group" aria-label="Filter departments">
+          <button class="filter-btn rounded-full px-4 py-1.5 text-sm font-semibold transition" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn rounded-full px-4 py-1.5 text-sm font-semibold transition" data-filter="core" aria-pressed="false">Core Pipeline</button>
+          <button class="filter-btn rounded-full px-4 py-1.5 text-sm font-semibold transition" data-filter="support" aria-pressed="false">Support</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-2 pb-20">
+      <div class="container">
+        <div id="dept-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <noscript><p class="text-rot-muted">Enable JavaScript to explore the departments.</p></noscript>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="dept-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
+       role="dialog" aria-modal="true" aria-labelledby="dept-modal-title">
+    <div class="relative w-full max-w-xl max-h-[88vh] overflow-y-auto rounded-2xl border border-rot-purple/40 bg-gradient-to-br from-[#14111d] to-[#0e0c14] p-6 shadow-2xl">
+      <button data-close aria-label="Close"
+        class="absolute top-3 right-3 w-9 h-9 rounded-lg border border-white/10 text-rot-text hover:text-rot-lime hover:border-rot-lime transition text-lg leading-none">✕</button>
+      <div id="dept-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER (matches index.html) -->
+  <footer>
+    <div class="container">
+      <p class="kicker">Like · Subscribe · Touch Grass</p>
+      <h2 class="section-title" style="font-size:1.6rem">8 departments. 1 mission.</h2>
+      <a class="btn btn-ghost" href="index.html">← Back to base</a>
+      <p class="disclaimer">
+        Entertainment purposes only. Departments and workflows depicted are part of a production
+        system; status indicators are illustrative. © <span id="year">2026</span> Brainrot Report 666.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/site/departments.js"></script>
+</body>
+</html>
