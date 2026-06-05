@@ -23,7 +23,7 @@ fi
 # Check department ethics
 echo ""
 echo "┌─────────────────────────────────────────────────────────┐"
-│ DEPARTMENT ETHICS COMPLIANCE                                  │"
+echo "│ DEPARTMENT ETHICS COMPLIANCE                             │"
 echo "└─────────────────────────────────────────────────────────┘"
 
 for dept in creative production post-production distribution legal-compliance; do
