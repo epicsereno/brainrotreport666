@@ -1,54 +1,20 @@
 {
   "episodes": [
     {
-      "id": "EP001",
-      "title": "Your FYP Is Cooked",
-      "status": "in-progress",
-      "stage": "in-progress",
-      "date": "2026-06-05",
-      "thumb": "EP001",
-      "runtime": "6:06",
-      "description": "Skibidi Toilet ate your attention span. We fight back with stats on doomscrolling, the dopamine hijack, and how to hack the algorithm without selling your soul.",
-      "tags": ["cooked", "skibidi", "doomscroll", "dopamine", "algorithm", "rizz"],
-      "teaser": null,
-      "link": "https://github.com/epicsereno/brainrotreport666/blob/main/departments/creative/scripts/SCRIPT-EP001-DRAFT-v1.md"
-    },
-    {
-      "id": "EP002",
-      "title": "Rizz Recession: The Great Gyatt Collapse",
-      "status": "published",
-      "stage": "published",
-      "date": "2026-05-22",
-      "thumb": "EP002",
-      "runtime": "7:41",
-      "description": "Ohio-level economics meets terminal brainrot. We chart the collapse of rizz futures, why mewing won't save the market, and the secretly wholesome lesson hiding in the chaos.",
-      "tags": ["rizz", "ohio", "gyatt", "mewing", "based", "fanum-tax"],
-      "teaser": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "link": "https://github.com/epicsereno/brainrotreport666"
-    },
-    {
-      "id": "EP003",
-      "title": "Sigma Grindset vs. Touch Grass Protocol",
-      "status": "review",
-      "stage": "review",
-      "date": "2026-06-12",
-      "thumb": "EP003",
-      "runtime": "5:58",
-      "description": "The 4am cold-shower sigma pipeline gets a peer review. We separate the genuinely useful habits from the engagement-farming cope — then send everyone outside.",
-      "tags": ["sigma", "grindset", "touch-grass", "based", "cope"],
-      "teaser": null,
-      "link": "https://github.com/epicsereno/brainrotreport666"
-    },
-    {
-      "id": "EP004",
-      "title": "NPC Streams & the Death of the Self",
-      "status": "ready",
-      "stage": "ready",
-      "date": "2026-06-15",
-      "thumb": "EP004",
-      "runtime": "8:12",
-      "description": "Gyatt. Ice cream so good. We unpack the NPC livestream economy, parasocial tipping loops, and what it means when people pay you to act like a vending machine.",
-      "tags": ["npc", "parasocial", "stream", "ohio", "gyatt"],
+      "id": "EP006",
+      "title": "Fanum Tax: Who Really Pays for Free Content",
+      "status": "incoming",
+      "date": "2026-07-10",
+      "thumb": "EP006",
+      "runtime": "TBA",
+      "description": "The fanum tax explained as actual economics: attention as currency, the hidden cost of 'free', and the fair-pay receipts behind every drop we make.",
+      "tags": [
+        "fanum-tax",
+        "economics",
+        "based",
+        "fair-pay",
+        "rizz"
+      ],
       "teaser": null,
       "link": "https://github.com/epicsereno/brainrotreport666"
     },
@@ -56,38 +22,109 @@
       "id": "EP005",
       "title": "Ohio Final Boss: A Brainrot Field Guide",
       "status": "incoming",
-      "stage": "incoming",
       "date": "2026-06-26",
       "thumb": "EP005",
       "runtime": "TBA",
       "description": "A taxonomy of every cursed creature in the feed — from the Gigachad to the Skibidi — and a survival map for getting out of Ohio with your frontal lobe intact.",
-      "tags": ["ohio", "skibidi", "gigachad", "field-guide", "cooked"],
+      "tags": [
+        "ohio",
+        "skibidi",
+        "gigachad",
+        "field-guide",
+        "cooked"
+      ],
       "teaser": null,
       "link": "https://github.com/epicsereno/brainrotreport666"
     },
     {
-      "id": "EP006",
-      "title": "Fanum Tax: Who Really Pays for Free Content",
-      "status": "incoming",
-      "stage": "incoming",
-      "date": "2026-07-10",
-      "thumb": "EP006",
-      "runtime": "TBA",
-      "description": "The fanum tax explained as actual economics: attention as currency, the hidden cost of 'free', and the fair-pay receipts behind every drop we make.",
-      "tags": ["fanum-tax", "economics", "based", "fair-pay", "rizz"],
+      "id": "EP004",
+      "title": "NPC Streams & the Death of the Self",
+      "status": "ready",
+      "date": "2026-06-15",
+      "thumb": "EP004",
+      "runtime": "8:12",
+      "description": "Gyatt. Ice cream so good. We unpack the NPC livestream economy, parasocial tipping loops, and what it means when people pay you to act like a vending machine.",
+      "tags": [
+        "npc",
+        "parasocial",
+        "stream",
+        "ohio",
+        "gyatt"
+      ],
       "teaser": null,
+      "link": "https://github.com/epicsereno/brainrotreport666"
+    },
+    {
+      "id": "EP003",
+      "title": "Sigma Grindset vs. Touch Grass Protocol",
+      "status": "review",
+      "date": "2026-06-12",
+      "thumb": "EP003",
+      "runtime": "5:58",
+      "description": "The 4am cold-shower sigma pipeline gets a peer review. We separate the genuinely useful habits from the engagement-farming cope — then send everyone outside.",
+      "tags": [
+        "sigma",
+        "grindset",
+        "touch-grass",
+        "based",
+        "cope"
+      ],
+      "teaser": null,
+      "link": "https://github.com/epicsereno/brainrotreport666"
+    },
+    {
+      "id": "EP001",
+      "title": "Your FYP Is Cooked",
+      "status": "in-progress",
+      "date": "2026-06-05",
+      "thumb": "EP001",
+      "runtime": "6:06",
+      "description": "Skibidi Toilet ate your attention span. We fight back with stats on doomscrolling, the dopamine hijack, and how to hack the algorithm without selling your soul.",
+      "tags": [
+        "cooked",
+        "skibidi",
+        "doomscroll",
+        "dopamine",
+        "algorithm",
+        "rizz"
+      ],
+      "teaser": null,
+      "link": "https://github.com/epicsereno/brainrotreport666/blob/Brainrotreport666/departments/creative/scripts/SCRIPT-EP001-DRAFT-v1.md"
+    },
+    {
+      "id": "EP002",
+      "title": "Rizz Recession: The Great Gyatt Collapse",
+      "status": "published",
+      "date": "2026-05-22",
+      "thumb": "EP002",
+      "runtime": "7:41",
+      "description": "Ohio-level economics meets terminal brainrot. We chart the collapse of rizz futures, why mewing won't save the market, and the secretly wholesome lesson hiding in the chaos.",
+      "tags": [
+        "rizz",
+        "ohio",
+        "gyatt",
+        "mewing",
+        "based",
+        "fanum-tax"
+      ],
+      "teaser": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "link": "https://github.com/epicsereno/brainrotreport666"
     },
     {
       "id": "EP000",
       "title": "Pilot: How We Got Cooked",
       "status": "archived",
-      "stage": "archived",
       "date": "2026-05-08",
       "thumb": "EP000",
       "runtime": "4:44",
       "description": "The origin drop. Why a secretly-ethical media empire decided to fight brainrot with brainrot — and the manifesto that kicked the whole conspiracy off.",
-      "tags": ["pilot", "origin", "based", "manifesto", "cooked"],
+      "tags": [
+        "pilot",
+        "origin",
+        "based",
+        "manifesto",
+        "cooked"
+      ],
       "teaser": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "link": "https://github.com/epicsereno/brainrotreport666"
     }
