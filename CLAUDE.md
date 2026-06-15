@@ -22,7 +22,7 @@ The README's ASCII diagrams (workflow, folder tree, periodical Mon–Sun schedul
 
 ## Scripts
 
-Only two scripts currently exist and run:
+The following workflow and report scripts are available:
 
 ```bash
 # Log a department-to-department handoff (writes shared/handoffs/<EP>_<from>_to_<to>.log
@@ -31,9 +31,14 @@ Only two scripts currently exist and run:
 
 # Print an ethics/compliance status report to stdout
 ./scripts/reports/campaign-ethics.sh [episode-id]
+
+# Render a daily storyboard JSON into a styled HTML daily report page
+./scripts/workflow/render-storyboard.sh storyboard.json > storyboard.html
 ```
 
-`campaign-ethics.sh` has a real syntax bug around line 26 (a heredoc-style line missing its `echo "` prefix) that will error at runtime — fix it before relying on the script.
+The system prompt for generating daily storyboards is located in the root file:
+- `storyboard_director.md`
+
 
 ### Scripts referenced but NOT yet present
 

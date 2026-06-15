@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BRAINROT REPORT 666 // DEPARTMENTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0b;
+    --ink-2:#0f0f12;
+    --bone:#ededea;
+    --grid:#1c1c22;
+    --mute:#6b6b78;
+    --hot:#ff006e;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:"Space Mono",ui-monospace,monospace;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;
+    background-position:center;
+  }
+
+  /* ---------- masthead ---------- */
+  .top{
+    border-bottom:2px solid var(--bone);
+    padding:18px 22px 16px;
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    background:linear-gradient(180deg,rgba(10,10,11,.92),rgba(10,10,11,.78));
+    position:sticky;top:0;z-index:5;backdrop-filter:blur(4px);
+  }
+  .brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .brand h1{
+    font-family:"Anton",Impact,sans-serif;
+    font-weight:400;letter-spacing:.01em;
+    font-size:clamp(28px,6vw,56px);line-height:.86;margin:0;
+    text-transform:uppercase;
+  }
+  .brand h1 .six{color:var(--hot);text-shadow:0 0 18px rgba(255,0,110,.55)}
+  .sub{color:var(--mute);font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+  .reg{
+    font-size:11px;letter-spacing:.2em;color:var(--mute);
+    text-align:right;line-height:1.7;white-space:nowrap;
+  }
+  .reg b{color:var(--bone)}
+  .rec{color:var(--hot)}
+  .rec::before{content:"●";margin-right:6px;animation:blink 1.3s steps(1) infinite}
+  @keyframes blink{50%{opacity:.15}}
+
+  /* ---------- controls ---------- */
+  .bar{
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    padding:14px 22px;border-bottom:1px solid var(--grid);
+  }
+  .bar .lbl{font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-right:4px}
+  .btn{
+    font-family:"Space Mono",monospace;font-weight:700;font-size:11px;
+    letter-spacing:.14em;text-transform:uppercase;
+    background:transparent;color:var(--bone);
+    border:1px solid #2a2a32;border-radius:0;
+    padding:9px 13px;cursor:pointer;transition:.12s;
+  }
+  .btn:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+  .btn[aria-pressed="true"]{background:var(--hot);border-color:var(--hot);color:#0a0a0b}
+  .btn:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+
+  /* ---------- grid ---------- */
+  .grid{
+    display:grid;gap:1px;background:var(--grid);
+    grid-template-columns:repeat(auto-fill,minmax(286px,1fr));
+    border-bottom:1px solid var(--grid);
+  }
+  .card{
+    background:var(--ink-2);padding:18px 18px 14px;
+    display:flex;flex-direction:column;gap:12px;
+    position:relative;
+  }
+  .card svg{width:100%;height:auto;display:block}
+  .card .meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .card .nm{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+  .card .nm b{color:var(--bone)}
+  .acts{display:flex;gap:8px}
+  .acts .btn{padding:7px 10px;font-size:10px}
+  .toast{
+    position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+    background:var(--bone);color:var(--ink);font-weight:700;font-size:12px;
+    letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;
+    opacity:0;pointer-events:none;transition:.2s;z-index:20;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  footer{padding:26px 22px;color:var(--mute);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  footer b{color:var(--bone)}
+
+  @media (prefers-reduced-motion:reduce){
+    .rec::before{animation:none}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <h1>Brainrot Report <span class="six">666</span></h1>
+    <span class="sub">Department&nbsp;Standards</span>
+  </div>
+  <div class="reg">
+    <span class="rec">REC // LIVE</span><br>
+    EDITION <b>Ø6.66</b> · STAMPS <b id="count">00</b><br>
+    git://<b>epicsereno</b>
+  </div>
+</header>
+
+<div class="bar">
+  <span class="lbl">Render</span>
+  <button class="btn" id="halftone" aria-pressed="true">Halftone</button>
+  <button class="btn" id="marks" aria-pressed="true">Crop marks</button>
+  <span class="lbl" style="margin-left:auto">Export</span>
+  <button class="btn" id="dlall">Download all .svg</button>
+</div>
+
+<main class="grid" id="grid" aria-label="Department badges"></main>
+
+<footer>
+  Drop each file into <b>/assets/departments/&lt;slug&gt;.svg</b> · vanilla SVG, no build step · edit the
+  <b>DEPARTMENTS</b> array to add beats · downloaded type falls back to <b>Impact</b> unless Anton is installed.
+</footer>
+
+<div class="toast" id="toast">copied</div>
+
+<script>
+/* ============================================================
+   BRAINROT REPORT 666 — DEPARTMENT BADGE ENGINE
+   Edit this array to add / rename / recolor departments.
+   ============================================================ */
+const DEPARTMENTS = [
+  { n:1,  code:"0xA1", name:"Street Wire",   beat:"bombing & graf dispatch",  accent:"#C6FF2E", glyph:"spray"   },
+  { n:2,  code:"0xA2", name:"Deck Check",    beat:"skate culture & spots",    accent:"#FF8A00", glyph:"skate"   },
+  { n:3,  code:"0xA3", name:"Rust & Boost",  beat:"tuning · diagnostics",     accent:"#00E5FF", glyph:"piston"  },
+  { n:4,  code:"0xA4", name:"Sacred Static", beat:"chicano iconography",      accent:"#FF2D6E", glyph:"heart"   },
+  { n:5,  code:"0xA5", name:"Slop Feed",     beat:"internet brainrot",        accent:"#B388FF", glyph:"drip"    },
+  { n:6,  code:"0xA6", name:"Night Market",  beat:"discount street economy",  accent:"#FFD000", glyph:"tag"     },
+  { n:7,  code:"0xA7", name:"Ink Ledger",    beat:"tattoo culture",           accent:"#E6E6E6", glyph:"needle"  },
+  { n:8,  code:"0xA8", name:"Doom Scroll",   beat:"attention & algorithm",    accent:"#FF3B3B", glyph:"spiral"  },
+  { n:9,  code:"0xA9", name:"Crypt Merch",   beat:"drops & storefront",       accent:"#7CFFB2", glyph:"crate"   },
+  { n:10, code:"0xAA", name:"Low Frequency", beat:"music · audio · bass",     accent:"#00B3FF", glyph:"wave"    },
+  { n:11, code:"0xAB", name:"Code Gremlin",  beat:"dev tooling brainrot",     accent:"#9DFF00", glyph:"bug"     },
+  { n:12, code:"0xAC", name:"Saint Circuit", beat:"ritual / occult satire",   accent:"#FF006E", glyph:"circuit" },
+  { n:13, code:"0xAD", name:"Field Static",  beat:"loose dispatch",           accent:"#C0C0C8", glyph:"signal"  },
+];
+
+/* ---------- glyphs: drawn in a local 0..64 box, accent stroke ---------- */
+const GLYPHS = {
+  spray:`<g stroke="VAR" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20" y="22" width="20" height="34" rx="2.5"/><rect x="24.5" y="14" width="11" height="8" rx="1.5"/>
+    <line x1="24.5" y1="14" x2="24.5" y2="9"/><line x1="35.5" y1="14" x2="35.5" y2="9"/>
+    <circle cx="48" cy="10" r="1.6" fill="VAR" stroke="none"/><circle cx="53" cy="16" r="1.6" fill="VAR" stroke="none"/>
+    <circle cx="46" cy="20" r="1.6" fill="VAR" stroke="none"/><circle cx="52" cy="7" r="1.6" fill="VAR" stroke="none"/></g>`,
+  skate:`<g stroke="VAR" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 30 Q32 38 50 30"/><line x1="14" y1="30" x2="11" y2="27"/><line x1="50" y1="30" x2="53" y2="27"/>
+    <circle cx="22" cy="42" r="4.5"/><circle cx="42" cy="42" r="4.5"/><line x1="22" y1="37.5" x2="22" y2="34"/><line x1="42" y1="37.5" x2="42" y2="34"/></g>`,
+  piston:`<g stroke="VAR" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="24" y="14" width="16" height="16" rx="2"/><line x1="32" y1="30" x2="32" y2="40"/>
+    <circle cx="32" cy="46" r="9"/><circle cx="32" cy="46" r="2.4" fill="VAR" stroke="none"/>
+    <line x1="32" y1="37" x2="32" y2="33"/><line x1="41" y1="46" x2="46" y2="46"/><line x1="23" y1="46" x2="18" y2="46"/></g>`,
+  heart:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 50 C16 38 18 24 27 24 C31 24 32 27 32 29 C32 27 33 24 37 24 C46 24 48 38 32 50Z"/>
+    <path d="M32 24 C32 18 28 16 31 11" /><path d="M32 24 C33 19 37 17 34 12"/>
+    <line x1="20" y1="20" x2="16" y2="16"/><line x1="44" y1="20" x2="48" y2="16"/><line x1="32" y1="16" x2="32" y2="10"/></g>`,
+  drip:`<g stroke="VAR" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 18 H46 V36 Q46 40 42 40 V48 Q42 51 39 48 V40 H34 V44 Q34 47 31 44 V40 H26 V52 Q26 55 23 52 V40 Q18 40 18 36 Z"/>
+    <circle cx="22" cy="58" r="1.7" fill="VAR" stroke="none"/><circle cx="40" cy="55" r="1.7" fill="VAR" stroke="none"/></g>`,
+  tag:`<g stroke="VAR" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 32 L34 14 L52 14 L52 32 L34 50 Z"/><circle cx="44" cy="22" r="3.2"/>
+    <line x1="24" y1="34" x2="34" y2="44"/></g>`,
+  needle:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 18 L50 24 L30 44 L24 44 L24 38 Z"/><line x1="24" y1="44" x2="16" y2="52"/>
+    <line x1="40" y1="22" x2="46" y2="28"/><circle cx="20" cy="48" r="1.6" fill="VAR" stroke="none"/></g>`,
+  spiral:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round">
+    <path d="M32 32 m0 -2 a2 2 0 1 1 -2 2 a6 6 0 1 1 6 -6 a10 10 0 1 1 -10 10 a14 14 0 1 1 14 -14 a18 18 0 1 1 -18 18"/></g>`,
+  crate:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="16" y="18" width="32" height="32" rx="2"/><line x1="16" y1="18" x2="48" y2="50"/><line x1="48" y1="18" x2="16" y2="50"/>
+    <line x1="16" y1="26" x2="48" y2="26"/><line x1="16" y1="42" x2="48" y2="42"/></g>`,
+  wave:`<g stroke="VAR" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 34 H18 L22 22 L28 46 L34 18 L40 42 L44 30 H52"/></g>`,
+  bug:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 22 L14 32 L22 42"/><path d="M42 22 L50 32 L42 42"/>
+    <ellipse cx="32" cy="34" rx="6" ry="9"/><line x1="32" y1="20" x2="32" y2="25"/>
+    <line x1="26" y1="30" x2="20" y2="28"/><line x1="38" y1="30" x2="44" y2="28"/>
+    <line x1="26" y1="38" x2="20" y2="40"/><line x1="38" y1="38" x2="44" y2="40"/></g>`,
+  circuit:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="32" y1="14" x2="32" y2="50"/><line x1="18" y1="32" x2="46" y2="32"/>
+    <circle cx="32" cy="11" r="2.6"/><circle cx="32" cy="53" r="2.6"/><circle cx="15" cy="32" r="2.6"/><circle cx="49" cy="32" r="2.6"/>
+    <circle cx="32" cy="32" r="6"/></g>`,
+  signal:`<g stroke="VAR" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="32" y1="34" x2="32" y2="52"/><polyline points="27,52 37,52"/>
+    <circle cx="32" cy="30" r="3" fill="VAR" stroke="none"/>
+    <path d="M24 24 Q22 30 24 36"/><path d="M40 24 Q42 30 40 36"/>
+    <path d="M19 19 Q15 30 19 41"/><path d="M45 19 Q49 30 45 41"/></g>`
+};
+
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
+const pad  = n => String(n).padStart(2,"0");
+
+/* build one standalone SVG string for a department */
+function buildSVG(d, {halftone=true, marks=true} = {}){
+  const id = slug(d.name);
+  const g  = (GLYPHS[d.glyph]||GLYPHS.signal).replaceAll("VAR", d.accent);
+  const ht = halftone ? `<rect x="0" y="0" width="360" height="460" fill="url(#ht-${id})"/>` : "";
+  const cm = marks ? `
+    <g stroke="${d.accent}" stroke-width="2">
+      <path d="M14 14 h16 M14 14 v16"/><path d="M346 14 h-16 M346 14 v16"/>
+      <path d="M14 446 h16 M14 446 v-16"/><path d="M346 446 h-16 M346 446 v-16"/>
+    </g>` : "";
+  // name on up to two lines
+  const words = d.name.toUpperCase().split(" ");
+  const line1 = words.length>1 ? words.slice(0,Math.ceil(words.length/2)).join(" ") : words[0];
+  const line2 = words.length>1 ? words.slice(Math.ceil(words.length/2)).join(" ") : "";
+  const nameBlock = line2
+    ? `<text x="30" y="350" class="nm">${line1}</text><text x="30" y="392" class="nm">${line2}</text>`
+    : `<text x="30" y="372" class="nm">${line1}</text>`;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 460" role="img" aria-label="${d.name} department badge">
+  <defs>
+    <pattern id="ht-${id}" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <circle cx="2" cy="2" r="1.15" fill="${d.accent}" opacity="0.14"/>
+    </pattern>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Mono&amp;display=swap');
+      .nm{font-family:'Anton','Archivo Black',Impact,sans-serif;fill:#ededea;font-size:40px;letter-spacing:.5px;text-transform:uppercase}
+      .mono{font-family:'Space Mono','Courier New',monospace;fill:#7c7c88;font-size:13px;letter-spacing:2px}
+      .monoA{font-family:'Space Mono','Courier New',monospace;font-weight:700;font-size:13px;letter-spacing:2px}
+      .num{font-family:'Anton',Impact,sans-serif;font-size:88px}
+    </style>
+  </defs>
+  <rect x="0" y="0" width="360" height="460" fill="#0b0b0c"/>
+  ${ht}
+  <rect x="22" y="22" width="316" height="416" fill="none" stroke="#26262e" stroke-width="2"/>
+  <rect x="22" y="22" width="316" height="416" fill="none" stroke="${d.accent}" stroke-width="2" stroke-dasharray="2 10"/>
+  ${cm}
+
+  <!-- header strip -->
+  <text x="30" y="58" class="mono">BRAINROT REPORT</text>
+  <text x="330" y="58" text-anchor="end" class="monoA" fill="${d.accent}">666</text>
+  <line x1="30" y1="70" x2="330" y2="70" stroke="#26262e" stroke-width="2"/>
+
+  <!-- big department number -->
+  <text x="30" y="150" class="num" fill="${d.accent}">${pad(d.n)}</text>
+  <text x="330" y="112" text-anchor="end" class="mono">DEPT</text>
+  <text x="330" y="132" text-anchor="end" class="monoA" fill="#ededea">${d.code}</text>
+
+  <!-- medallion + glyph -->
+  <g transform="translate(180 240)">
+    <circle r="64" fill="none" stroke="${d.accent}" stroke-width="2"/>
+    <circle r="56" fill="none" stroke="#26262e" stroke-width="10"/>
+    <g transform="translate(-64 -64) scale(2)">${g}</g>
+  </g>
+
+  <!-- name -->
+  <line x1="30" y1="318" x2="330" y2="318" stroke="${d.accent}" stroke-width="3"/>
+  ${nameBlock}
+
+  <!-- footer -->
+  <line x1="30" y1="406" x2="330" y2="406" stroke="#26262e" stroke-width="2"/>
+  <text x="30" y="426" class="mono">BEAT//</text>
+  <text x="86" y="426" class="monoA" fill="${d.accent}">${d.beat.toUpperCase()}</text>
+</svg>`;
+}
+
+/* ---------- render ---------- */
+const grid = document.getElementById("grid");
+let opts = { halftone:true, marks:true };
+
+function render(){
+  grid.innerHTML = "";
+  DEPARTMENTS.forEach(d=>{
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      ${buildSVG(d, opts)}
+      <div class="meta">
+        <span class="nm"><b>${pad(d.n)}</b> · ${slug(d.name)}.svg</span>
+        <span class="acts">
+          <button class="btn copy" type="button">Copy</button>
+          <button class="btn dl" type="button">.svg</button>
+        </span>
+      </div>`;
+    const svgStr = () => buildSVG(d, opts);
+    card.querySelector(".copy").addEventListener("click", ()=>copy(svgStr()));
+    card.querySelector(".dl").addEventListener("click", ()=>download(slug(d.name)+".svg", svgStr()));
+    grid.appendChild(card);
+  });
+  document.getElementById("count").textContent = pad(DEPARTMENTS.length);
+}
+
+/* ---------- export helpers ---------- */
+function download(name, str){
+  const blob = new Blob([str], {type:"image/svg+xml"});
+  const url  = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url), 1500);
+}
+async function copy(str){
+  try{ await navigator.clipboard.writeText(str); toast("SVG copied"); }
+  catch{ toast("copy blocked — use .svg"); }
+}
+let tT;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(tT); tT = setTimeout(()=>t.classList.remove("show"), 1600);
+}
+
+/* ---------- controls ---------- */
+function toggle(id, key){
+  const b = document.getElementById(id);
+  b.addEventListener("click", ()=>{
+    opts[key] = !opts[key];
+    b.setAttribute("aria-pressed", String(opts[key]));
+    render();
+  });
+}
+toggle("halftone","halftone");
+toggle("marks","marks");
+document.getElementById("dlall").addEventListener("click", ()=>{
+  DEPARTMENTS.forEach((d,i)=> setTimeout(()=>download(slug(d.name)+".svg", buildSVG(d,opts)), i*180));
+  toast("downloading "+DEPARTMENTS.length+" files");
+});
+
+render();
+</script>
+</body>
+</html>

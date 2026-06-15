@@ -1,0 +1,120 @@
+{
+  "episode": {
+    "id": "EP001",
+    "number": 1,
+    "title": "Your FYP Is Cooked",
+    "description": "Skibidi Toilet ate your attention span. We fight back with stats on doomscrolling, the dopamine hijack, and how to hack the algorithm without selling your soul.",
+    "status": "in-progress",
+    "campaign": "launch",
+    "created_at": "2026-06-05T00:00:00Z",
+    "updated_at": "2026-06-14T05:08:00Z",
+    "published_at": null,
+    "archived_at": null
+  },
+  "departments": {
+    "creative": {
+      "assigned": "epicsereno",
+      "script": "departments/creative/scripts/SCRIPT-EP001-DRAFT-v1.md",
+      "storyboard": "departments/creative/storyboards/EP001/SB-EP001-FULL-v1.md",
+      "graphics": [],
+      "thumbnails": [],
+      "status": "completed",
+      "completed_at": "2026-06-14T05:08:00Z",
+      "ethics_review": {
+        "reviewer": "epicsereno",
+        "approved": true,
+        "notes": "Fact-checking complete. Doomscrolling stats sourced."
+      }
+    },
+    "production": {
+      "assigned": null,
+      "footage_files": [],
+      "audio_files": [],
+      "releases": [],
+      "logs": null,
+      "status": "pending",
+      "completed_at": null,
+      "safety_check": {
+        "reviewer": null,
+        "approved": false,
+        "notes": ""
+      }
+    },
+    "post-production": {
+      "assigned": null,
+      "editor": null,
+      "vfx_artist": null,
+      "colorist": null,
+      "audio_engineer": null,
+      "versions": [],
+      "status": "pending",
+      "completed_at": null,
+      "qc": {
+        "reviewer": null,
+        "passed": false,
+        "issues": [],
+        "notes": ""
+      }
+    },
+    "distribution": {
+      "assigned": null,
+      "platforms": {
+        "youtube": { "video_id": null, "url": null, "published_at": null, "status": "pending" },
+        "instagram": { "media_id": null, "url": null, "published_at": null, "status": "pending" },
+        "tiktok": { "video_id": null, "url": null, "published_at": null, "status": "pending" }
+      },
+      "schedule": null,
+      "seo": { "keywords": ["doomscroll", "skibidi", "dopamine", "algorithm"], "tags": ["cooked", "dopamine", "algorithm", "rizz"] },
+      "status": "pending",
+      "completed_at": null
+    },
+    "analytics": {
+      "assigned": null,
+      "tracking_enabled": false,
+      "reports": [],
+      "status": "pending"
+    },
+    "legal-compliance": {
+      "assigned": null,
+      "contracts": [],
+      "rights": [],
+      "disclosures": [],
+      "ethics_approved": false,
+      "status": "pending",
+      "completed_at": null
+    },
+    "community": {
+      "assigned": null,
+      "engagement_plan": null,
+      "moderation_guidelines": null,
+      "feedback_collected": [],
+      "status": "pending"
+    },
+    "finance": {
+      "assigned": null,
+      "budget": { "allocated": 500, "spent": 0, "remaining": 500 },
+      "invoices": [],
+      "revenue": { "youtube": 0, "instagram": 0, "tiktok": 0, "sponsorships": 0 },
+      "status": "pending"
+    }
+  },
+  "handoffs": [],
+  "ethics": {
+    "checklist": {
+      "creative": true,
+      "production": false,
+      "post-production": false,
+      "distribution": false
+    },
+    "final_approval": {
+      "reviewer": null,
+      "approved": false,
+      "timestamp": null
+    }
+  },
+  "analytics": {
+    "youtube": { "views": 0, "likes": 0, "comments": 0, "watch_time_hours": 0, "retention_avg": 0 },
+    "instagram": { "views": 0, "likes": 0, "comments": 0, "shares": 0, "saves": 0 },
+    "tiktok": { "views": 0, "likes": 0, "comments": 0, "shares": 0, "watch_time_avg": 0 }
+  }
+}

@@ -33,9 +33,9 @@ Last updated: 2026-06-05.
 ## 🟢 Episode pipeline — EP001
 
 - [x] EP001 draft script filed: `departments/creative/scripts/SCRIPT-EP001-DRAFT-v1.md`
-- [ ] **Create EP001 metadata** from `metadata/episodes/template.json` → `metadata/episodes/`
-- [ ] **Stage EP001** in the `episodes/` pipeline (`incoming/` or `in-progress/`)
-- [ ] Run a handoff log when creative → production: `./scripts/workflow/handoff.sh EP001 creative production`
+- [x] **Create EP001 metadata** from `metadata/episodes/template.json` → `metadata/episodes/` — done 2026-06-14
+- [x] **Stage EP001** in the `episodes/` pipeline (`incoming/` or `in-progress/`) — done 2026-06-14
+- [x] Run a handoff log when creative → production: `./scripts/workflow/handoff.sh EP001 creative production` — done 2026-06-14
 
 ## 📺 Episodes page (`episodes.html`)
 

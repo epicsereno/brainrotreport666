@@ -1,0 +1,160 @@
+{
+  "departments": [
+    {
+      "number": 1,
+      "id": "street_wire",
+      "code": "0xSW",
+      "name": "Street Wire",
+      "beat": "skate dispatch",
+      "accent": "#00ff9f",
+      "glyph": "skate",
+      "category": "creative",
+      "blurb": "Real-time updates on street sessions, local skate spots, slams, and trick logs.",
+      "ethics_gate": "Verify spot permissions and safety disclosures."
+    },
+    {
+      "number": 2,
+      "id": "deck_check",
+      "code": "0xDC",
+      "name": "Deck Check",
+      "beat": "board tech & setup",
+      "accent": "#ff007f",
+      "glyph": "tag",
+      "category": "creative",
+      "blurb": "Teardowns and deep reviews of board builds, setup specs, and street hardware.",
+      "ethics_gate": "Unbiased technical testing and transparent manufacturer disclosures."
+    },
+    {
+      "number": 3,
+      "id": "rust_boost",
+      "code": "0xRB",
+      "name": "Rust & Boost",
+      "beat": "lowrider specs / tune",
+      "accent": "#ffaa00",
+      "glyph": "piston",
+      "category": "production",
+      "blurb": "Deep-dives into car culture, engine builds, suspension logs, and D16 tuning runs.",
+      "ethics_gate": "Respect local traffic regulations; document safety checks."
+    },
+    {
+      "number": 4,
+      "id": "sacred_static",
+      "code": "0xSS",
+      "name": "Sacred Static",
+      "beat": "saint dispatch",
+      "accent": "#a855f7",
+      "glyph": "signal",
+      "category": "creative",
+      "blurb": "Street art, sacred murals, and traditional neighborhood iconography.",
+      "ethics_gate": "Handle religious and Chicano iconographic traditions with respect; do not commercialize sacred elements."
+    },
+    {
+      "number": 5,
+      "id": "slop_feed",
+      "code": "0xSF",
+      "name": "Slop Feed",
+      "beat": "meme curation / bit",
+      "accent": "#00ffff",
+      "glyph": "bug",
+      "category": "creative",
+      "blurb": "Curation of internet culture trends, memes, and daily unhinged commentary.",
+      "ethics_gate": "Verify context of content; protect private user accounts from exposure."
+    },
+    {
+      "number": 6,
+      "id": "night_market",
+      "code": "0xNM",
+      "name": "Night Market",
+      "beat": "street food science",
+      "accent": "#ff5500",
+      "glyph": "drip",
+      "category": "production",
+      "blurb": "Exploring late-night eats, taco stand recipes, and corner-store food science.",
+      "ethics_gate": "Support and promote local vendors; pay full price for food; highlight hygiene and safety."
+    },
+    {
+      "number": 7,
+      "id": "ink_ledger",
+      "code": "0xIL",
+      "name": "Ink Ledger",
+      "beat": "graffiti styles / log",
+      "accent": "#ff00ff",
+      "glyph": "spray",
+      "category": "creative",
+      "blurb": "Weekly digests on regional graffiti styles, handstyles, throwups, and color tracks.",
+      "ethics_gate": "Provide pure stylistic documentation; do not publish identifiers or sensitive location data."
+    },
+    {
+      "number": 8,
+      "id": "doom_scroll",
+      "code": "0xDS",
+      "name": "Doom Scroll",
+      "beat": "algorithm fact-check",
+      "accent": "#00ccff",
+      "glyph": "spiral",
+      "category": "legal-compliance",
+      "blurb": "Fact-checking claims and exposing algorithm manipulation metrics.",
+      "ethics_gate": "Multi-source fact verification; issue corrections immediately upon error."
+    },
+    {
+      "number": 9,
+      "id": "crypt_merch",
+      "code": "0xCM",
+      "name": "Crypt Merch",
+      "beat": "gear drops & catalog",
+      "accent": "#ffea00",
+      "glyph": "crate",
+      "category": "finance",
+      "blurb": "Tracking storefront designs, physical merch drops, and transparent production rates.",
+      "ethics_gate": "Fair supply chain transparency and carbon-offset reports."
+    },
+    {
+      "number": 10,
+      "id": "low_frequency",
+      "code": "0xLF",
+      "name": "Low Frequency",
+      "beat": "music drops & cuts",
+      "accent": "#ff3366",
+      "glyph": "wave",
+      "category": "post-production",
+      "blurb": "Spotlighting underground music releases, vinyl finds, and bass culture.",
+      "ethics_gate": "Link to artists directly; respect copyright clearances and fair usage rules."
+    },
+    {
+      "number": 11,
+      "id": "code_gremlin",
+      "code": "0xCG",
+      "name": "Code Gremlin",
+      "beat": "workflow automation",
+      "accent": "#00ff66",
+      "glyph": "circuit",
+      "category": "analytics",
+      "blurb": "Automating repositories, metadata generation, and pipeline status maps.",
+      "ethics_gate": "Ensure open-source licensing; protect system access credentials."
+    },
+    {
+      "number": 12,
+      "id": "saint_circuit",
+      "code": "0xSC",
+      "name": "Saint Circuit",
+      "beat": "sacred tech & lore",
+      "accent": "#bb00ff",
+      "glyph": "heart",
+      "category": "creative",
+      "blurb": "Lore drops connecting tech concepts with community heritage and neighborhood history.",
+      "ethics_gate": "Maintain historical accuracy and cultural sensitivity."
+    },
+    {
+      "number": 13,
+      "id": "field_static",
+      "code": "0xFS",
+      "name": "Field Static",
+      "beat": "barrio bulletin",
+      "accent": "#ff0055",
+      "glyph": "needle",
+      "category": "community",
+      "blurb": "Dispatch from the neighborhood; stories of local resilience, organizing, and history.",
+      "ethics_gate": "Gain active consent from speakers; center community voices."
+    }
+  ]
+}
