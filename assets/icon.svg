@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Brainrot Report 666">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14111d"/>
+      <stop offset="1" stop-color="#07060a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#00ff9f" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#00ff9f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="96" fill="url(#glow)"/>
+  <rect x="8" y="8" width="496" height="496" rx="88" fill="none" stroke="#a855f7" stroke-width="6" opacity="0.55"/>
+  <text x="256" y="300" font-size="220" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif">💀</text>
+  <text x="256" y="430" font-size="92" text-anchor="middle" fill="#ff2e88" font-weight="900"
+        font-family="Consolas, monospace" letter-spacing="6">666</text>
+</svg>

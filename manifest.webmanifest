@@ -1,0 +1,26 @@
+{
+  "name": "Brainrot Report 666",
+  "short_name": "BR666",
+  "description": "Brainrot Report 666 — a secretly ethical content production empire. Episode drops, department manifests, and a transparent workflow.",
+  "id": "/brainrotreport666/",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#07060a",
+  "theme_color": "#07060a",
+  "categories": ["entertainment", "productivity"],
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Episodes", "url": "episodes.html" },
+    { "name": "Departments", "url": "departments.html" },
+    { "name": "Workflow", "url": "workflow.html" }
+  ]
+}

@@ -526,6 +526,43 @@ footer .disclaimer {
 .progress-item.pending .stage-name { color: var(--muted); }
 @keyframes barpulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
 
+/* deploy console */
+.deploy-panel { margin-top: 2.5rem; }
+.deploy-bar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.deploy-status {
+  font-family: var(--mono); font-size: 0.82rem; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.deploy-status .dot {
+  width: 9px; height: 9px; border-radius: 999px; background: var(--muted);
+  box-shadow: 0 0 8px var(--muted);
+}
+.deploy-status.running .dot { background: var(--purple); box-shadow: 0 0 10px var(--purple); animation: blink 1s ease-in-out infinite; }
+.deploy-status.done .dot { background: var(--neon); box-shadow: 0 0 10px var(--neon); }
+.deploy-status.running { color: var(--purple); }
+.deploy-status.done { color: var(--neon); }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.deploy-console {
+  font-family: var(--mono); font-size: 0.82rem; line-height: 1.7;
+  color: var(--neon); background: #0b0911; border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem 1.1rem; margin: 0;
+  min-height: 7.5rem; max-height: 16rem; overflow-y: auto;
+  white-space: pre-wrap; word-break: break-word;
+}
+.deploy-console .cmd { color: var(--purple); }
+.deploy-console .ok { color: var(--neon); }
+.deploy-console .muted { color: var(--muted); }
+.deploy-btn-busy { opacity: 0.6; pointer-events: none; }
+
+/* touch-grass confetti */
+.confetti-piece {
+  position: fixed; top: 0; left: 0; width: 9px; height: 9px;
+  border-radius: 2px; pointer-events: none; z-index: 200; will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .deploy-status.running .dot { animation: none; }
+}
+
 /* ---------- ETHICS PAGE ---------- */
 .lead-quote {
   border-left: 3px solid var(--neon); background: var(--panel);

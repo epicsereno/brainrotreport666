@@ -1,0 +1,5 @@
+# Brainrot Report 666 — robots
+User-agent: *
+Allow: /
+
+Sitemap: https://epicsereno.github.io/brainrotreport666/sitemap.xml

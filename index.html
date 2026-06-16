@@ -83,7 +83,7 @@
             <div class="metric-label">✦ Souls Saved</div>
           </div>
           <div class="card metric-card rizz">
-            <div class="metric-value">OVER 9000</div>
+            <div class="metric-value" id="metric-rizz">0</div>
             <div class="metric-label">✦ Rizz Level</div>
           </div>
           <div class="card metric-card">
@@ -95,6 +95,15 @@
             <div class="metric-label">Grass Touched</div>
             <button class="btn grass-btn" id="grass-touch-btn">🌱 Touch Grass +1</button>
           </div>
+        </div>
+
+        <!-- DEPLOY CONSOLE -->
+        <div class="deploy-panel">
+          <div class="deploy-bar">
+            <button class="btn btn-primary" id="deploy-btn">🚀 Deploy New Episode</button>
+            <span class="deploy-status" id="deploy-status"><span class="dot"></span> pipeline idle</span>
+          </div>
+          <pre class="deploy-console" id="deploy-console" aria-live="polite" aria-label="Deploy output">$ awaiting orders… hit deploy to run <span class="cmd">scripts/workflow/new-episode.sh</span></pre>
         </div>
 
         <div class="dash-split">

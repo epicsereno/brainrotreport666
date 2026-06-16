@@ -73,7 +73,46 @@ if (souls) {
   tick();
 }
 
-/* ---- Touch Grass counter (persisted, increments on click) ---- */
+/* ---- metric: Rizz Level — count up, then flex "OVER 9000" ---- */
+const rizz = document.getElementById("metric-rizz");
+if (rizz) {
+  let v = 0;
+  const target = 9001;
+  const tick = () => {
+    v += Math.ceil((target - v) / 14) || 1;
+    if (v >= target) { rizz.textContent = "OVER 9000"; return; }
+    rizz.textContent = v.toLocaleString();
+    requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+/* ---- confetti (dependency-free, respects reduced motion) ---- */
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const CONFETTI_COLORS = ["#00ff9f", "#a855f7", "#ff2e88", "#ffffff", "#7CFC9A"];
+function burstConfetti(x, y) {
+  if (reduceMotion) return;
+  for (let i = 0; i < 26; i++) {
+    const p = document.createElement("div");
+    p.className = "confetti-piece";
+    p.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+    document.body.appendChild(p);
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 60 + Math.random() * 140;
+    const dx = Math.cos(angle) * dist;
+    const dy = Math.sin(angle) * dist + 120 + Math.random() * 120; // bias downward (gravity)
+    const rot = (Math.random() * 720 - 360) + "deg";
+    p.animate(
+      [
+        { transform: `translate(${x}px, ${y}px) rotate(0deg)`, opacity: 1 },
+        { transform: `translate(${x + dx}px, ${y + dy}px) rotate(${rot})`, opacity: 0 },
+      ],
+      { duration: 800 + Math.random() * 600, easing: "cubic-bezier(.2,.8,.3,1)" }
+    ).onfinish = () => p.remove();
+  }
+}
+
+/* ---- Touch Grass counter (persisted, increments on click, confetti) ---- */
 const GKEY = "br666-grass-touched";
 const grassOut = document.getElementById("metric-grass");
 const grassBtn = document.getElementById("grass-touch-btn");
@@ -93,5 +132,65 @@ if (grassBtn && grassOut) {
       [{ transform: "scale(1.3)", color: "#7CFC9A" }, { transform: "scale(1)" }],
       { duration: 280, easing: "ease-out" }
     );
+    const r = grassBtn.getBoundingClientRect();
+    burstConfetti(r.left + r.width / 2, r.top + r.height / 2);
+  });
+}
+
+/* ---- "Deploy New Episode" — simulates scripts/workflow/new-episode.sh ---- */
+const EKEY = "br666-next-ep";
+const deployBtn = document.getElementById("deploy-btn");
+const deployStatus = document.getElementById("deploy-status");
+const deployConsole = document.getElementById("deploy-console");
+function nextEpNumber() {
+  try { return parseInt(localStorage.getItem(EKEY) || "7", 10) || 7; } catch (e) { return 7; }
+}
+function epId(n) { return "EP" + String(n).padStart(3, "0"); }
+
+if (deployBtn && deployConsole) {
+  deployBtn.addEventListener("click", () => {
+    const n = nextEpNumber();
+    const ep = epId(n);
+    const lines = [
+      { t: `$ ./scripts/workflow/new-episode.sh ${ep}`, cls: "cmd" },
+      { t: `→ scaffolding episodes/incoming/${ep}/ …`, cls: "muted" },
+      { t: `→ seeding metadata from metadata/episodes/template.json …`, cls: "muted" },
+      { t: `→ writing department blocks: creative · production · post-production · distribution`, cls: "muted" },
+      { t: `→ support gates: analytics · legal-compliance · community · finance`, cls: "muted" },
+      { t: `→ ethics_review: PENDING · safety_check: PENDING · qc: PENDING`, cls: "muted" },
+      { t: `✓ ${ep} created — stage: incoming. handoff → creative ready.`, cls: "ok" },
+    ];
+
+    deployBtn.classList.add("deploy-btn-busy");
+    deployBtn.setAttribute("aria-busy", "true");
+    if (deployStatus) {
+      deployStatus.className = "deploy-status running";
+      deployStatus.innerHTML = `<span class="dot"></span> deploying ${ep}…`;
+    }
+    deployConsole.innerHTML = "";
+
+    let i = 0;
+    const step = () => {
+      if (i < lines.length) {
+        const span = document.createElement("span");
+        span.className = lines[i].cls;
+        span.textContent = lines[i].t;
+        deployConsole.appendChild(span);
+        deployConsole.appendChild(document.createTextNode("\n"));
+        deployConsole.scrollTop = deployConsole.scrollHeight;
+        i++;
+        setTimeout(step, 380);
+      } else {
+        try { localStorage.setItem(EKEY, String(n + 1)); } catch (e) {}
+        if (deployStatus) {
+          deployStatus.className = "deploy-status done";
+          deployStatus.innerHTML = `<span class="dot"></span> ${ep} queued → incoming`;
+        }
+        deployBtn.classList.remove("deploy-btn-busy");
+        deployBtn.removeAttribute("aria-busy");
+        alert(`🚀 ${ep} deployed to the pipeline!\n\nStage: incoming → routed to Creative.\nEthics + safety gates set to PENDING (secretly ethical, always).`);
+      }
+    };
+    step();
   });
 }
