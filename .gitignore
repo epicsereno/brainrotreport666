@@ -81,3 +81,9 @@ tmp/*
 *.rar
 *.7z
 *.tar.gz
+
+# Held-back "rogue/666x" content drop — kept out of the public Pages site
+/20260614.py
+/departments/creative/graphics/prompts20260614
+/departments/creative/scripts/python
+/departments/creative/storyboards/launch20260614
