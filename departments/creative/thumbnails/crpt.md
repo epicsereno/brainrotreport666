@@ -1,0 +1,7 @@
+Trend anchor: Y2K horrorcore lowrider revival + skeletal Chicano folklore.
+Visual brief: Cursed '64 Impala lowrider bouncing through a fog-choked dead mall lot at 3AM. Skeletal cholo driver rocking a glowing Aztec death mask, tire smoke twisting into screaming demon faces, chrome dripping ectoplasm, graffiti tags on the hood pulsing like veins.
+Palette: #1C0F00 (midnight oil), #FF4500 (hellfire chrome), #2F2F2F (tire smoke), #00FF9F (toxic glow accents).
+Placement: Front left chest + massive back panel with underprint tire tracks. Heavyweight 280gsm cotton.
+Target: Lowrider culture crossovers and brainrot fiends hunting cursed merch.
+Copy-paste prompt:
+"Cursed lowrider Impala cruising through a dead mall parking lot at midnight, skeletal cholo driver with glowing Aztec mask, tire smoke forming demon faces, graffiti tags bleeding into the asphalt, horrorcore energy. deep-fried maximalist Brainrot Report 666 house style, East LA Chicano, graffiti and skate-zine, black-and-grey tattoo line work, Aztec geometry, halftone grime, VHS scanlines, bold high-contrast flat shapes, designed for screen print and merch, no photoreal, centered composition, ultra detailed, crisp edges, high resolution"
