@@ -1,0 +1,129 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+      - '.gitignore'
+  workflow_dispatch:
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache apt packages and jq
+        id: cache-apt
+        uses: actions/cache@v4
+        with:
+          path: |
+            /var/cache/apt/archives
+            /var/lib/apt/lists
+          key: ${{ runner.os }}-apt-jq-${{ hashFiles('bin/*') }}
+          restore-keys: |
+            ${{ runner.os }}-apt-jq-
+
+      - name: Install dependencies (jq)
+        run: |
+          if ! command -v jq &> /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y jq
+          fi
+
+      - name: Validate config/*.json
+        run: |
+          echo "Validating config JSON files..."
+          shopt -s nullglob
+          for file in config/*.json; do
+            echo "Checking $file..."
+            if ! jq empty "$file"; then
+              echo "::error file=$file::Malformed JSON in $file"
+              exit 1
+            fi
+          done
+
+      - name: Run render/generate scripts
+        run: |
+          echo "Running generation scripts..."
+          if [ -d "bin" ]; then
+            chmod +x bin/* || true
+            shopt -s nullglob
+            for script in bin/*; do
+              if [ -x "$script" ] && [ ! -d "$script" ]; then
+                echo "Running $script..."
+                if ! ./"$script"; then
+                  echo "::error file=$script::Script $script failed"
+                  exit 1
+                fi
+              fi
+            done
+          else
+            echo "::warning title=Missing bin/ Directory::No bin/ directory found, skipping generation scripts."
+          fi
+
+      - name: Check dist/ integrity
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "::error title=Missing dist/::dist/ directory is missing"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "::error title=Missing index.html::dist/index.html is missing"
+            exit 1
+          fi
+          if [ -z "$(ls -A dist)" ]; then
+            echo "::error title=Empty dist/::dist/ directory is empty"
+            exit 1
+          fi
+
+      - name: HTML/Link Sanity Check
+        run: |
+          echo "Checking for broken links or malformed HTML in dist/..."
+          if grep -rnE '(href|src)=""' dist/; then
+            echo "::error title=Empty Links Found::Found empty href or src attributes in the above files."
+            exit 1
+          fi
+          echo "Sanity check passed."
+
+      - name: Setup Pages
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
