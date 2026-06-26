@@ -1,0 +1,11 @@
+{
+  "post_schedule": {
+    "frequency": "daily",
+    "timezone": "UTC",
+    "times": [
+      "09:00",
+      "15:00",
+      "20:00"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+.
+├── Brainrot_Report_Android_Architecture_2026.docx
+├── Brainrot_Report_Android_Architecture_2026.pdf
+├── CLAUDE.md
+├── HONEYDO.md
+├── README.md
+├── assets
+│   └── site
+│       ├── contribute.js
+│       ├── dashboard.js
+│       ├── departments.js
+│       ├── episodes.js
+│       ├── episodes.json
+│       ├── ethics.js
+│       ├── github.js
+│       ├── main.js
+│       ├── mermaid-tools.js
+│       ├── styles.css
+│       ├── theme.js
+│       └── workflow.js
+├── contribute.html
+├── departments
+│   ├── analytics
+│   │   ├── audience
+│   │   ├── growth
+│   │   ├── performance
+│   │   └── reports
+│   ├── community
+│   │   ├── collaborations
+│   │   ├── engagement
+│   │   ├── feedback
+│   │   └── moderation
+│   ├── creative
+│   │   ├── NAMING_CONVENTION.md
+│   │   ├── graphics
+│   │   ├── scripts
+│   │   │   └── SCRIPT-EP001-DRAFT-v1.md
+│   │   ├── storyboards
+│   │   │   ├── 20260614_joker.md
+│   │   │   ├── monthly-board
+│   │   │   └── weekly Brainrot x
+│   │   └── thumbnails
+│   │       ├── crpt.md
+│   │       ├── nsfw20260614
+│   │       └── skate.md
+│   ├── distribution
+│   │   ├── instagram
+│   │   ├── scheduling
+│   │   ├── seo
+│   │   ├── tiktok
+│   │   └── youtube
+│   ├── finance
+│   │   ├── budgets
+│   │   ├── expenses
+│   │   ├── invoices
+│   │   └── revenue
+│   ├── legal-compliance
+│   │   ├── contracts
+│   │   ├── disclaimers
+│   │   ├── ethics
+│   │   ├── privacy
+│   │   └── rights
+│   ├── post-production
+│   │   ├── audio
+│   │   ├── color
+│   │   ├── editing
+│   │   ├── qc
+│   │   ├── sound-design
+│   │   └── vfx
+│   └── production
+│       ├── assets
+│       ├── audio
+│       ├── logs
+│       │   └── dailygrok
+│       └── raw-footage
+├── departments.html
+├── docs
+│   ├── departments
+│   │   ├── analytics.md
+│   │   ├── community.md
+│   │   ├── creative.md
+│   │   ├── distribution.md
+│   │   ├── finance.md
+│   │   ├── legal-compliance.md
+│   │   ├── post-production.md
+│   │   └── production.md
+│   ├── ethics
+│   │   └── campaign-principles.md
+│   └── workflows
+│       └── handoff-process.md
+├── episodes
+│   ├── archived
+│   │   └── EP000.md
+│   ├── in-progress
+│   │   ├── 20260614.txt
+│   │   └── EP001.md
+│   ├── incoming
+│   │   ├── EP005.md
+│   │   └── EP006.md
+│   ├── published
+│   │   └── EP002.md
+│   ├── ready
+│   │   └── EP004.md
+│   └── review
+│       └── EP003.md
+├── episodes.html
+├── ethics.html
+├── index.html
+├── logs
+│   └── 20260329
+├── metadata
+│   ├── campaigns
+│   ├── departments
+│   └── episodes
+│       └── template.json
+├── scripts
+│   ├── reports
+│   │   └── campaign-ethics.sh
+│   ├── site
+│   │   └── generate-episodes.js
+│   └── workflow
+│       └── handoff.sh
+├── shared
+│   ├── brand
+│   ├── handoffs
+│   ├── resources
+│   └── templates
+├── tmp
+├── tree.txt
+└── workflow.html
+
+74 directories, 56 files

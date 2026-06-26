@@ -1,0 +1,20 @@
+{
+  "platforms": {
+    "x": {
+      "enabled": true,
+      "maxCharacters": 280
+    },
+    "instagram": {
+      "enabled": true,
+      "mediaRequired": true
+    },
+    "youtube": {
+      "enabled": true,
+      "mediaRequired": true
+    },
+    "tiktok": {
+      "enabled": true,
+      "mediaRequired": true
+    }
+  }
+}
